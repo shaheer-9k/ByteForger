@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import { navLinks } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import logoUrl from "@assets/logo_1764185200770.png";
+import logoUrl from "@assets/bf_logo_1764188700832.png";
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
@@ -110,11 +110,17 @@ export default function Navbar() {
       isVisible ? "transform translate-y-0" : "transform -translate-y-full"
     }`}>
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto w-full">
-        <Link href="/" data-testid="link-home">
-          <div className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
-            <img src={logoUrl} alt="ByteForger Logo" className="h-8 md:h-10" />
-          </div>
-        </Link>
+        <button
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setNav(false);
+          }}
+          data-testid="button-logo"
+          className="hover:opacity-80 transition-opacity cursor-pointer flex items-center gap-2"
+          aria-label="ByteForger Home"
+        >
+          <img src={logoUrl} alt="ByteForger Logo" className="h-auto w-40 md:w-48 object-contain flex-shrink-0" />
+        </button>
 
         <nav className="hidden md:flex md:flex-row items-center lg:text-lg md:text-md text-sm gap-2" aria-label="Main navigation">
           {navLinks.map((item) => (
