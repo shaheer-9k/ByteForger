@@ -421,7 +421,35 @@ export default function Home() {
           </motion.div>
 
           <motion.div 
-            className="bg-gradient-to-r from-darkBlue to-darkPink dark:from-neonPink dark:to-lightBlue rounded-3xl shadow-2xl p-12 md:p-16 text-center relative overflow-hidden"
+            className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-16 sm:mb-20 py-12 sm:py-16 px-4 sm:px-6 md:px-0"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            {[
+              { number: "50+", label: "Projects Completed", icon: "✅" },
+              { number: "30+", label: "Happy Clients", icon: "😊" },
+              { number: "15+", label: "Years Experience", icon: "⭐" },
+              { number: "100%", label: "Client Satisfaction", icon: "🏆" },
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                className="text-center p-4 sm:p-6 bg-gradient-to-br from-white/95 to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink hover:scale-105"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.5 }}
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold font-play bg-gradient-to-r from-darkBlue to-neonPink bg-clip-text text-transparent mb-2 sm:mb-3">
+                  {stat.number}
+                </div>
+                <p className="text-xs sm:text-sm md:text-base text-darkBlue dark:text-lightBlue font-semibold">{stat.label}</p>
+                <div className="text-2xl sm:text-3xl mt-2">{stat.icon}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            className="bg-gradient-to-r from-darkBlue to-darkPink dark:from-neonPink dark:to-lightBlue rounded-3xl shadow-2xl p-8 sm:p-12 md:p-16 text-center relative overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
@@ -429,15 +457,15 @@ export default function Home() {
               <div className="absolute top-10 right-10 w-72 h-72 bg-white rounded-full mix-blend-screen filter blur-3xl"></div>
             </div>
             <div className="relative z-10">
-              <h3 className="text-4xl md:text-5xl font-bold font-play text-white mb-6">
+              <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold font-play text-white mb-4 sm:mb-6">
                 Every Project is an Opportunity
               </h3>
-              <p className="text-cream/95 text-lg leading-relaxed mb-8 max-w-3xl mx-auto">
+              <p className="text-cream/95 text-sm xs:text-base sm:text-lg md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto">
                 At ByteForger, we don't just build software—we forge digital masterpieces that transform businesses. 
                 Let's build the future together and create something extraordinary.
               </p>
               <Link href="/contact">
-                <a className="inline-block px-8 py-3 bg-white text-darkBlue font-bold font-play rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl cursor-pointer">
+                <a className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-white text-darkBlue font-bold font-play rounded-full hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl cursor-pointer text-sm sm:text-base">
                   Start Your Journey Today
                 </a>
               </Link>
