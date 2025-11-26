@@ -59,24 +59,24 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="portfolio" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4">
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold font-play text-darkBlue mb-4">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold font-play text-darkBlue mb-3 sm:mb-4">
             Our <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent">Portfolio</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xs xs:text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0">
             Transforming ideas into stunning digital experiences across industries
           </p>
         </motion.div>
 
         <motion.div 
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          className="flex flex-wrap justify-center gap-2 xs:gap-3 mb-12 sm:mb-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -86,7 +86,7 @@ export default function Portfolio() {
             data-testid="button-filter-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 backdrop-blur-sm ${
+            className={`px-4 xs:px-6 sm:px-8 py-2 xs:py-3 rounded-full font-semibold text-xs xs:text-sm sm:text-base transition-all duration-300 backdrop-blur-sm ${
               selectedCategory === null
                 ? "bg-gradient-to-r from-darkBlue to-lightBlue text-white shadow-lg"
                 : "bg-white text-darkBlue hover:bg-gray-100 border border-gray-200"
@@ -101,7 +101,7 @@ export default function Portfolio() {
               data-testid={`button-filter-${cat.toLowerCase().replace(/\s+/g, '-')}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 backdrop-blur-sm ${
+              className={`px-4 xs:px-6 sm:px-8 py-2 xs:py-3 rounded-full font-semibold text-xs xs:text-sm sm:text-base transition-all duration-300 backdrop-blur-sm ${
                 selectedCategory === cat
                   ? "bg-gradient-to-r from-darkBlue to-lightBlue text-white shadow-lg"
                   : "bg-white text-darkBlue hover:bg-gray-100 border border-gray-200"
@@ -113,7 +113,7 @@ export default function Portfolio() {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -126,7 +126,7 @@ export default function Portfolio() {
               className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 border border-gray-100 hover:border-lightBlue"
               data-testid={`card-project-${project.id}`}
             >
-              <div className="relative h-72 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+              <div className="relative h-48 xs:h-60 sm:h-72 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
                 <motion.img
                   src={project.image}
                   alt={project.title}
@@ -151,12 +151,12 @@ export default function Portfolio() {
                   </span>
                 </div>
               </div>
-              <div className="p-8">
-                <span className="text-sm font-bold text-transparent bg-gradient-to-r from-darkPink to-neonPink bg-clip-text">
+              <div className="p-4 sm:p-6 md:p-8">
+                <span className="text-xs xs:text-sm font-bold text-transparent bg-gradient-to-r from-darkPink to-neonPink bg-clip-text">
                   {project.category}
                 </span>
-                <h3 className="text-2xl font-bold font-play text-darkBlue my-3">{project.title}</h3>
-                <p className="text-textGray text-sm leading-relaxed mb-6">{project.description}</p>
+                <h3 className="text-lg xs:text-xl sm:text-2xl font-bold font-play text-darkBlue my-2 sm:my-3">{project.title}</h3>
+                <p className="text-textGray text-xs xs:text-sm leading-relaxed mb-4 sm:mb-6">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <motion.span

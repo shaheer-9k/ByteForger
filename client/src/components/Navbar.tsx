@@ -171,17 +171,17 @@ export default function Navbar() {
         <div
           className={`${
             nav ? "translate-x-0" : "translate-x-full"
-          } fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-transform duration-300 ease-in-out md:hidden`}
+          } fixed top-16 left-0 right-0 bottom-0 bg-white z-40 flex flex-col items-center justify-start pt-8 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto`}
         >
           {navLinks.map((item) => (
             item.section.startsWith("#") ? (
               <button
                 key={item.id}
                 data-testid={`button-mobile-nav-${item.text.toLowerCase()}`}
-                className={`my-4 text-center text-lg font-play transition-colors duration-300 ${
+                className={`w-full py-3 px-4 text-center text-base sm:text-lg font-play transition-colors duration-300 border-b border-gray-100 ${
                   isLinkActive(item.section) 
-                    ? "text-lightBlue" 
-                    : "text-foreground hover:text-lightBlue"
+                    ? "text-lightBlue bg-blue-50" 
+                    : "text-foreground hover:text-lightBlue hover:bg-gray-50"
                 }`}
                 onClick={() => handleNavClick(item.section)}
               >
@@ -191,10 +191,10 @@ export default function Navbar() {
               <Link key={item.id} href={item.section}>
                 <a
                   data-testid={`link-mobile-${item.text.toLowerCase()}`}
-                  className={`my-4 text-center text-lg font-play transition-colors duration-300 ${
+                  className={`w-full py-3 px-4 text-center text-base sm:text-lg font-play transition-colors duration-300 border-b border-gray-100 block ${
                     isLinkActive(item.section) 
-                      ? "text-lightBlue" 
-                      : "text-foreground hover:text-lightBlue"
+                      ? "text-lightBlue bg-blue-50" 
+                      : "text-foreground hover:text-lightBlue hover:bg-gray-50"
                   }`}
                   onClick={() => setNav(false)}
                 >
@@ -207,10 +207,10 @@ export default function Navbar() {
             <a
               data-testid="link-mobile-contact"
               onClick={() => setNav(false)}
-              className={`block text-lg rounded-xl py-2 px-8 my-4 font-play transition duration-300 ease-in-out transform hover:-translate-y-1 ${
+              className={`w-full text-center text-base sm:text-lg rounded-none py-4 px-6 my-2 font-play font-semibold transition duration-300 ease-in-out transform hover:scale-105 ${
                 location === "/contact" 
                   ? "bg-lightBlue text-white" 
-                  : "bg-darkBlue text-white hover:bg-lightBlue"
+                  : "bg-gradient-to-r from-darkBlue to-lightBlue text-white hover:shadow-lg"
               }`}
             >
               Contact Us
