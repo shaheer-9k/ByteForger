@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Cloud, Globe, Code, Target, ArrowRight } from "lucide-react";
+import { Cloud, Globe, Code, Target, ArrowRight, Sparkles } from "lucide-react";
 import AnimatedCard from "./AnimatedCard";
 
 export default function Hero() {
@@ -9,33 +9,55 @@ export default function Hero() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <div className="w-full px-3 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-12 md:py-16 flex flex-col lg:flex-row justify-between items-center gap-4 sm:gap-8 lg:gap-12 min-h-screen sm:min-h-[calc(100vh-5rem)] lg:min-h-[60vh] overflow-hidden">
+    <div className="w-full px-3 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-12 md:py-16 flex flex-col lg:flex-row justify-between items-center gap-4 sm:gap-8 lg:gap-12 min-h-screen sm:min-h-[calc(100vh-5rem)] lg:min-h-[60vh] overflow-hidden relative">
+      {/* Animated background blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <motion.div 
+          className="absolute top-10 left-10 w-72 h-72 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full filter blur-3xl animate-blob"
+          animate={{ x: [-50, 50, -50], y: [-50, 50, -50] }}
+          transition={{ duration: 20, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full filter blur-3xl animate-blob-2"
+          animate={{ x: [50, -50, 50], y: [50, -50, 50] }}
+          transition={{ duration: 25, repeat: Infinity }}
+        />
+      </div>
       <motion.div 
-        className="flex flex-col justify-center w-full lg:w-1/2"
+        className="flex flex-col justify-center w-full lg:w-1/2 relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
+        <motion.div 
+          variants={itemVariants}
+          className="flex items-center gap-2 mb-4"
+        >
+          <Sparkles className="w-5 h-5 text-neonPink animate-pulse" />
+          <span className="text-sm font-semibold text-neonPink uppercase tracking-widest">Welcome to ByteForger</span>
+        </motion.div>
+        
         <motion.h1 
           variants={itemVariants}
-          className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-darkBlue font-play font-bold my-2 sm:my-4 md:my-6 leading-tight"
+          className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-darkBlue dark:text-white font-play font-bold my-2 sm:my-4 md:my-6 leading-tight"
         >
-          Transform Your <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent">Digital Vision</span> into Reality
+          Transform Your <span className="bg-gradient-to-r from-darkPink via-neonPink to-neonBlue dark:from-neonPink dark:via-neonBlue dark:to-cream bg-clip-text text-transparent animate-rotate-gradient bg-size-200">Digital Vision</span> into Reality
         </motion.h1>
         
         <motion.p 
@@ -67,26 +89,37 @@ export default function Hero() {
           </span>
         </motion.div>
         
-        <motion.div variants={itemVariants}>
+        <motion.div 
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row gap-4 items-start sm:items-center"
+        >
           <Link href="/contact">
             <a 
               data-testid="button-get-started"
-              className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-r from-darkBlue to-lightBlue text-white font-play font-bold rounded-lg py-2 sm:py-3 px-6 sm:px-8 hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap text-xs sm:text-base group"
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-r from-darkBlue to-lightBlue text-white font-play font-bold rounded-xl py-3 sm:py-4 px-8 sm:px-10 hover:shadow-2xl hover:scale-110 transition-all duration-300 whitespace-nowrap text-xs sm:text-base group animate-glow"
             >
               Let's get started!
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
             </a>
           </Link>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="glass rounded-xl py-3 px-8 text-darkBlue dark:text-white font-semibold text-xs sm:text-base hover:glass-hover"
+          >
+            Learn More
+          </motion.button>
         </motion.div>
       </motion.div>
       
       <motion.div 
-        className="w-full lg:w-1/2 relative flex justify-center items-center mt-6 sm:mt-0"
-        initial={{ opacity: 0, scale: 0.9 }}
+        className="w-full lg:w-1/2 relative flex justify-center items-center mt-6 sm:mt-0 z-10"
+        initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 lg:gap-8 p-2 xs:p-3 sm:p-6 md:p-8 w-full max-w-2xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-3xl blur-2xl" />
+        <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 lg:gap-8 p-2 xs:p-3 sm:p-6 md:p-8 w-full max-w-2xl relative z-10">
           <AnimatedCard
             icon={<Cloud className="w-12 h-12 md:w-16 md:h-16 text-white" />}
             title="Cloud Solutions"
