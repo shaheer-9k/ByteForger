@@ -149,13 +149,13 @@ export default function Navbar() {
           <Link href="/contact">
             <a
               data-testid="link-contact"
-              className={`md:text-md text-sm rounded-3xl py-2 px-4 mx-2 font-play transition duration-300 ease-in-out transform hover:-translate-y-1 ${
+              className={`text-xs sm:text-sm md:text-base rounded-full py-2.5 px-6 md:px-7 mx-2 font-play font-bold transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 whitespace-nowrap flex items-center gap-1 bg-gradient-to-r ${
                 location === "/contact" 
-                  ? "bg-lightBlue text-white dark:bg-lightBlue dark:text-gray-900" 
-                  : "bg-darkBlue text-cream dark:bg-gray-800 dark:text-gray-100 hover:bg-lightBlue dark:hover:bg-lightBlue dark:hover:text-gray-900"
+                  ? "from-lightBlue to-neonBlue text-white shadow-md" 
+                  : "from-darkBlue to-lightBlue text-white shadow-md hover:shadow-xl dark:from-neonPink dark:to-lightBlue"
               }`}
             >
-              Contact Us
+              <span>Contact Us</span>
             </a>
           </Link>
           <ThemeToggle />
@@ -209,18 +209,18 @@ export default function Navbar() {
             <a
               data-testid="link-mobile-contact"
               onClick={() => setNav(false)}
-              className={`w-full text-center text-base sm:text-lg rounded-none py-4 px-6 my-2 font-play font-semibold transition duration-300 ease-in-out transform hover:scale-105 ${
+              className={`w-4/5 text-center text-base font-play font-bold rounded-full py-3 px-6 my-3 transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 bg-gradient-to-r ${
                 location === "/contact" 
-                  ? "bg-lightBlue text-white dark:bg-lightBlue dark:text-gray-900" 
-                  : "bg-gradient-to-r from-darkBlue to-lightBlue text-white dark:bg-gradient-to-r dark:from-gray-800 dark:to-gray-700 hover:shadow-lg dark:hover:shadow-lg dark:hover:shadow-gray-600"
+                  ? "from-lightBlue to-neonBlue text-white shadow-md" 
+                  : "from-darkBlue to-lightBlue text-white shadow-md dark:from-neonPink dark:to-lightBlue"
               }`}
             >
               Contact Us
             </a>
-            <div className="w-full flex justify-center py-4">
-              <ThemeToggle />
-            </div>
           </Link>
+          <div className="w-full flex justify-center py-4">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </nav>

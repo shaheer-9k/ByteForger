@@ -122,11 +122,11 @@ export default function Portfolio() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl overflow-hidden transition-all duration-300 border border-gray-100 hover:border-lightBlue"
+              whileHover={{ y: -12, scale: 1.02 }}
+              className="group bg-white dark:bg-gray-800 rounded-3xl shadow-xl dark:shadow-2xl hover:shadow-2xl dark:hover:shadow-2xl dark:hover:shadow-gray-700 overflow-hidden transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink"
               data-testid={`card-project-${project.id}`}
             >
-              <div className="relative h-48 xs:h-60 sm:h-72 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
+              <div className="relative h-48 xs:h-60 sm:h-72 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600">
                 <motion.img
                   src={project.image}
                   alt={project.title}
@@ -151,18 +151,18 @@ export default function Portfolio() {
                   </span>
                 </div>
               </div>
-              <div className="p-4 sm:p-6 md:p-8">
-                <span className="text-xs xs:text-sm font-bold text-transparent bg-gradient-to-r from-darkPink to-neonPink bg-clip-text">
+              <div className="p-4 sm:p-6 md:p-8 bg-gradient-to-b from-white/50 to-white dark:from-gray-800/50 dark:to-gray-800">
+                <span className="text-xs xs:text-sm font-bold text-transparent bg-gradient-to-r from-darkPink to-neonPink bg-clip-text uppercase tracking-wider">
                   {project.category}
                 </span>
-                <h3 className="text-lg xs:text-xl sm:text-2xl font-bold font-play text-darkBlue my-2 sm:my-3">{project.title}</h3>
-                <p className="text-textGray text-xs xs:text-sm leading-relaxed mb-4 sm:mb-6">{project.description}</p>
+                <h3 className="text-lg xs:text-xl sm:text-2xl font-bold font-play text-darkBlue dark:text-lightBlue my-2 sm:my-3 group-hover:text-neonPink dark:group-hover:text-neonPink transition-colors">{project.title}</h3>
+                <p className="text-textGray dark:text-gray-400 text-xs xs:text-sm leading-relaxed mb-4 sm:mb-6 group-hover:text-foreground dark:group-hover:text-gray-300 transition-colors">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <motion.span
                       key={tech}
-                      whileHover={{ scale: 1.05 }}
-                      className="inline-block bg-gradient-to-r from-darkBlue/10 to-lightBlue/10 text-darkBlue text-xs px-3 py-2 rounded-full font-semibold border border-darkBlue/20 hover:border-darkBlue/40 transition-all"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      className="inline-block bg-gradient-to-r from-darkBlue/15 to-lightBlue/15 dark:from-neonPink/20 dark:to-lightBlue/20 text-darkBlue dark:text-lightBlue text-xs px-3 py-2 rounded-full font-semibold border border-darkBlue/30 dark:border-neonPink/40 hover:border-darkBlue/60 dark:hover:border-lightBlue/60 hover:shadow-md transition-all"
                       data-testid={`badge-tech-${tech.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {tech}

@@ -75,7 +75,7 @@ export default function Footer() {
                   key={index}
                   onClick={() => handleNavClick(link.section)}
                   data-testid={`button-footer-${link.text.toLowerCase()}`}
-                  className="text-textGray hover:text-darkPink my-1 text-sm md:text-base transition-colors text-left"
+                  className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors text-left"
                 >
                   {link.text}
                 </button>
@@ -83,7 +83,7 @@ export default function Footer() {
                 <Link key={index} href={link.section}>
                   <a 
                     data-testid={`link-footer-${link.text.toLowerCase()}`}
-                    className="text-textGray hover:text-darkPink my-1 text-sm md:text-base transition-colors"
+                    className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors"
                   >
                     {link.text}
                   </a>
@@ -93,7 +93,7 @@ export default function Footer() {
             <Link href="/contact">
               <a 
                 data-testid="link-footer-contact"
-                className="text-textGray hover:text-darkPink my-1 text-sm md:text-base transition-colors"
+                className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors"
               >
                 Contact
               </a>
@@ -101,16 +101,16 @@ export default function Footer() {
           </div>
           
           <div className="w-full md:w-1/2 lg:w-2/5">
-            <p className="font-bold font-play text-lg lg:text-xl text-darkBlue my-2">
+            <p className="font-bold font-play text-lg lg:text-xl text-darkBlue dark:text-lightBlue my-2">
               Connect With Us
             </p>
-            <p className="text-textGray my-2 text-sm md:text-base">
+            <p className="text-textGray dark:text-gray-400 my-2 text-sm md:text-base">
               Ready to start your next project? Let's discuss how we can help.
             </p>
             <Link href="/contact">
               <a 
                 data-testid="button-footer-get-started"
-                className="inline-block bg-darkBlue text-white px-4 py-2 rounded-lg hover:bg-lightBlue transition-colors text-sm font-play mt-2 mb-4"
+                className="inline-block bg-gradient-to-r from-darkBlue to-lightBlue text-white px-6 py-3 rounded-full hover:shadow-lg hover:scale-105 transition-all text-sm font-play font-bold mt-2 mb-4"
               >
                 Get Started
               </a>
@@ -124,11 +124,11 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 shadow-md rounded-full items-center bg-white hover:bg-darkBlue hover:text-white transition-colors group"
+                    className="p-2.5 shadow-md rounded-full items-center bg-white dark:bg-gray-700 hover:bg-gradient-to-r hover:from-darkBlue hover:to-lightBlue hover:text-white transition-all duration-300 group transform hover:scale-110"
                     aria-label={`Follow us on ${social.name}`}
                     data-testid={`link-social-${social.name.toLowerCase()}`}
                   >
-                    <Icon className="w-4 h-4 group-hover:text-white" />
+                    <Icon className="w-5 h-5 text-darkBlue dark:text-gray-300 group-hover:text-white transition-colors" />
                   </a>
                 );
               })}
@@ -136,8 +136,8 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-gray-200 mt-8 pt-4">
-          <p className="text-center text-textGray text-xs md:text-sm">
+        <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-4">
+          <p className="text-center text-textGray dark:text-gray-500 text-xs md:text-sm">
             © 2025 ByteForger. All rights reserved. | Crafting Excellence in Digital Solutions
           </p>
         </div>
