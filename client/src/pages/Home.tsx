@@ -84,21 +84,21 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section className="py-20 bg-gradient-to-r from-darkBlue via-blue-800 to-lightBlue text-white relative overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-28 bg-gradient-to-r from-darkBlue via-blue-800 to-lightBlue text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full mix-blend-screen filter blur-3xl"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-neonPink rounded-full mix-blend-screen filter blur-3xl"></div>
         </div>
-        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold font-play mb-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 text-center relative z-10">
+          <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold font-play mb-4 sm:mb-6 leading-tight">
             Transforming Ideas Into <span className="bg-gradient-to-r from-neonPink to-cream bg-clip-text text-transparent">Digital Excellence</span>
           </h2>
-          <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12">
+          <p className="text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-8 sm:mb-12 px-2">
             <strong>ByteForger</strong> is a technology consulting firm specializing in modern software development, 
             cloud architecture, and AI solutions. We partner with businesses to create scalable, 
             innovative digital experiences that drive growth and competitive advantage.
           </p>
-          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
             {[
               { icon: "⚡", title: "Rapid Development", desc: "Agile approach for fast delivery", testid: "card-rapid-development" },
               { icon: "💡", title: "Innovation Focus", desc: "Latest tech & best practices", testid: "card-innovation" },
@@ -109,12 +109,12 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
-                className="group p-8 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
+                className="group p-6 sm:p-8 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300 h-full"
                 data-testid={item.testid}
               >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                <div className="text-xl font-semibold mb-2">{item.title}</div>
-                <div className="text-sm text-blue-100">{item.desc}</div>
+                <div className="text-4xl sm:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                <div className="text-lg sm:text-xl font-semibold mb-2">{item.title}</div>
+                <div className="text-xs sm:text-sm text-blue-100">{item.desc}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -128,11 +128,11 @@ export default function Home() {
             isVisible1 ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="text-center mb-8 mt-14 px-4">
-            <p className="text-foreground text-3xl font-semibold font-play mb-4">
+          <div className="text-center mb-8 sm:mb-12 mt-12 sm:mt-14 px-4 sm:px-6">
+            <p className="text-foreground text-2xl xs:text-3xl sm:text-4xl font-semibold font-play mb-3 sm:mb-4">
               Our Services
             </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
               ByteForger delivers comprehensive technology solutions to transform your business. 
               From cutting-edge web development to scalable cloud infrastructure and AI integration, 
               we're your partner in digital innovation.
