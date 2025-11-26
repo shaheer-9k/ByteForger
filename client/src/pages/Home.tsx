@@ -150,8 +150,9 @@ export default function Home() {
             transitionDuration={600}
             containerClass="carousel-container"
             autoPlay={true}
-            autoPlaySpeed={4000}
-            removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+            autoPlaySpeed={1000}
+            removeArrowOnDeviceType={[]}
+            arrows={true}
           >
             {services.map((service, index) => {
               const Icon = service.image;
@@ -161,22 +162,22 @@ export default function Home() {
                   className="h-full min-h-80 sm:min-h-96 md:min-h-[400px] p-3"
                   data-testid={`card-service-${service.id}`}
                 >
-                  <div className="group h-full bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl p-8 flex flex-col items-center justify-start transition-all duration-500 overflow-hidden relative border border-gray-100 hover:border-lightBlue">
-                    <div className="absolute inset-0 bg-gradient-to-br from-darkBlue/0 via-transparent to-darkPink/0 group-hover:from-darkBlue/5 group-hover:to-darkPink/5 transition-all duration-500" />
+                  <div className="group h-full bg-gradient-to-br from-white/95 to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl shadow-xl dark:shadow-2xl dark:shadow-gray-900 p-8 flex flex-col items-center justify-center transition-all duration-500 overflow-hidden relative border border-gray-200 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink hover:shadow-2xl dark:hover:shadow-3xl">
+                    <div className="absolute inset-0 bg-gradient-to-br from-darkBlue/0 via-transparent to-darkPink/0 group-hover:from-darkBlue/10 group-hover:to-darkPink/10 transition-all duration-500" />
                     
-                    <div className="relative z-10 w-full flex flex-col items-center">
-                      <div className="mb-4 p-4 bg-gradient-to-br from-darkBlue/10 to-lightBlue/10 rounded-2xl group-hover:scale-110 group-hover:from-darkBlue/20 group-hover:to-lightBlue/20 transition-all duration-300">
-                        <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-darkBlue group-hover:text-darkPink transition-colors duration-300" />
+                    <div className="relative z-10 w-full flex flex-col items-center h-full justify-center">
+                      <div className="mb-6 p-5 bg-gradient-to-br from-darkBlue/15 to-lightBlue/15 dark:from-neonPink/20 dark:to-lightBlue/20 rounded-3xl group-hover:scale-120 group-hover:from-darkBlue/25 group-hover:to-lightBlue/25 dark:group-hover:from-neonPink/30 dark:group-hover:to-lightBlue/30 transition-all duration-300 shadow-lg">
+                        <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-darkBlue dark:text-neonPink group-hover:text-darkPink dark:group-hover:text-cream transition-colors duration-300" />
                       </div>
-                      <p className="font-bold font-play text-center text-lg md:text-xl text-darkBlue mb-3 group-hover:text-darkPink transition-colors duration-300">
+                      <p className="font-bold font-play text-center text-lg md:text-2xl text-darkBlue dark:text-lightBlue mb-4 group-hover:text-darkPink dark:group-hover:text-cream transition-colors duration-300">
                         {service.title}
                       </p>
-                      <p className="text-center text-sm md:text-base text-textGray group-hover:text-foreground transition-colors duration-300 leading-relaxed">
+                      <p className="text-center text-sm md:text-base text-textGray dark:text-gray-300 group-hover:text-foreground dark:group-hover:text-gray-200 transition-colors duration-300 leading-relaxed">
                         {service.desc}
                       </p>
                     </div>
 
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-darkBlue via-lightBlue to-darkPink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-darkBlue via-lightBlue to-darkPink dark:from-neonPink dark:via-lightBlue dark:to-cream transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-lg" />
                   </div>
                 </div>
               );
@@ -220,19 +221,22 @@ export default function Home() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ x: 8 }}
-                  className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 p-8 flex flex-row justify-between items-center w-full max-w-xl rounded-2xl hover:border-neonPink/50 hover:bg-white/20 transition-all duration-300"
+                  className="group bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md border border-white/30 p-8 flex flex-col md:flex-row justify-between items-start md:items-center w-full max-w-2xl rounded-3xl hover:border-neonPink/60 hover:bg-white/25 hover:shadow-xl transition-all duration-300"
                   data-testid={`card-approach-${item.id}`}
                 >
-                  <div className="flex-shrink-0 text-neonBlue group-hover:scale-110 group-hover:text-neonPink transition-all duration-300">
-                    <Icon className="w-14 h-14" />
+                  <div className="flex-shrink-0 text-neonBlue group-hover:scale-125 group-hover:text-neonPink group-hover:rotate-6 transition-all duration-300 mb-4 md:mb-0">
+                    <Icon className="w-16 h-16 md:w-20 md:h-20" />
                   </div>
-                  <div className="ml-6 flex-1">
-                    <p className="text-lg font-bold font-play text-neonBlue group-hover:text-cream mb-2 transition-colors">
+                  <div className="md:ml-8 flex-1">
+                    <p className="text-xl md:text-2xl font-bold font-play text-neonBlue group-hover:text-cream mb-3 transition-colors">
                       {item.title}
                     </p>
-                    <p className="text-cream/90 font-light text-sm leading-relaxed">
+                    <p className="text-cream/95 font-light text-sm md:text-base leading-relaxed mb-3">
                       {item.desc}
                     </p>
+                    <div className="text-xs md:text-sm text-cream/70 group-hover:text-cream/90 transition-colors leading-relaxed italic">
+                      {item.details || "Optimized for scalability and maintainability"}
+                    </div>
                   </div>
                 </motion.div>
               );
@@ -271,17 +275,28 @@ export default function Home() {
                 </button>
               ))}
             </div>
-            <div className="flex flex-wrap justify-center md:justify-evenly items-center space-y-4 md:space-y-0 max-w-6xl mx-auto gap-6">
+            <div className="flex flex-wrap justify-center items-center max-w-6xl mx-auto gap-4 md:gap-8">
               {techStack[selectedCategory as keyof typeof techStack].map((tech, index) => (
                 <a
                   key={index}
                   href={tech.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 min-w-[120px] text-center"
+                  className="group p-6 md:p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg dark:shadow-xl hover:shadow-2xl dark:hover:shadow-2xl dark:hover:shadow-gray-700 transition-all duration-300 hover:scale-110 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink flex flex-col items-center justify-center min-h-[140px] md:min-h-[160px] min-w-[140px] md:min-w-[160px]"
                   data-testid={`link-tech-${tech.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  <p className="text-darkBlue font-semibold text-sm">{tech.name}</p>
+                  {tech.logo ? (
+                    <img 
+                      src={tech.logo} 
+                      alt={tech.name}
+                      className="h-12 md:h-16 w-auto object-contain mb-3 group-hover:scale-110 transition-transform duration-300 filter dark:invert"
+                    />
+                  ) : (
+                    <div className="h-12 md:h-16 flex items-center justify-center mb-3 text-3xl md:text-4xl font-bold text-darkBlue dark:text-lightBlue">
+                      {tech.name.charAt(0)}
+                    </div>
+                  )}
+                  <p className="text-darkBlue dark:text-lightBlue font-bold text-xs md:text-sm text-center group-hover:text-neonPink dark:group-hover:text-neonPink transition-colors">{tech.name}</p>
                 </a>
               ))}
             </div>
