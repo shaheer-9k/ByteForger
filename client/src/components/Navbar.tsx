@@ -109,20 +109,20 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 shadow-md dark:shadow-lg dark:shadow-gray-800 transition-all duration-300 ${
       isVisible ? "transform translate-y-0" : "transform -translate-y-full"
     }`}>
-      <div className="flex justify-between items-center p-4 max-w-7xl mx-auto w-full">
+      <div className="flex justify-between items-center px-3 sm:px-4 py-2 sm:py-4 max-w-7xl mx-auto w-full">
         <button
           onClick={() => {
             window.scrollTo({ top: 0, behavior: "smooth" });
             setNav(false);
           }}
           data-testid="button-logo"
-          className="hover:opacity-80 transition-opacity cursor-pointer flex items-center gap-2"
+          className="hover:opacity-80 transition-opacity cursor-pointer flex items-center gap-2 flex-shrink-0"
           aria-label="ByteForger Home"
         >
-          <img src={logoUrl} alt="ByteForger Logo" className="h-auto w-40 md:w-48 object-contain flex-shrink-0" />
+          <img src={logoUrl} alt="ByteForger Logo" className="h-auto w-24 sm:w-32 md:w-40 lg:w-48 object-contain flex-shrink-0" />
         </button>
 
-        <nav className="hidden md:flex md:flex-row items-center lg:text-lg md:text-md text-sm gap-2" aria-label="Main navigation">
+        <nav className="hidden md:flex md:flex-row items-center lg:text-base md:text-sm gap-2 md:gap-3" aria-label="Main navigation">
           {navLinks.map((item) => (
             item.section.startsWith("#") ? (
               <button
