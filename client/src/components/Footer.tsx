@@ -30,7 +30,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-50 shadow-inner p-4 md:p-6 lg:px-8 mt-16">
+    <footer className="bg-gray-50 dark:bg-gray-900 shadow-inner dark:shadow-lg dark:shadow-gray-800 p-4 md:p-6 lg:px-8 mt-16 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-start items-start lg:items-start lg:space-x-10 lg:space-y-0 space-y-6">
           <div className="lg:w-2/5 w-full px-4 md:px-6 lg:px-0">
@@ -39,26 +39,26 @@ export default function Footer() {
                 <img src={logoUrl} alt="ByteForger Logo" className="h-12 md:h-14" />
               </a>
             </Link>
-            <p className="text-textGray my-4 text-sm md:text-base leading-relaxed">
+            <p className="text-textGray dark:text-gray-400 my-4 text-sm md:text-base leading-relaxed">
               ByteForger - Crafting digital excellence through innovative software solutions. 
               We help build and manage world-class development teams to bring your vision to life.
             </p>
             <div className="space-y-2 mt-4">
               <div className="flex items-center gap-2">
                 <img src={mailIcon} alt="Email" className="w-4 h-4" />
-                <a href="mailto:info@byteforger.com" className="text-textGray hover:text-darkPink text-sm transition-colors">
+                <a href="mailto:info@byteforger.com" className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink text-sm transition-colors">
                   info@byteforger.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <img src={callIcon} alt="Phone" className="w-4 h-4" />
-                <a href="tel:+1234567890" className="text-textGray hover:text-darkPink text-sm transition-colors">
+                <a href="tel:+1234567890" className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink text-sm transition-colors">
                   +1 (234) 567-890
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <img src={addressIcon} alt="Address" className="w-4 h-4" />
-                <p className="text-textGray text-sm">
+                <p className="text-textGray dark:text-gray-400 text-sm">
                   Texas, USA
                 </p>
               </div>
@@ -66,7 +66,7 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col justify-start items-start w-full md:w-1/2 lg:w-1/5">
-            <p className="font-bold font-play text-lg lg:text-xl text-darkBlue my-2">
+            <p className="font-bold font-play text-lg lg:text-xl text-darkBlue dark:text-lightBlue my-2">
               Navigation
             </p>
             {navLinks.map((link, index) => (
