@@ -297,17 +297,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="mt-14 py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900/20">
-        <div className="max-w-7xl mx-auto">
+      <section id="about" className="mt-14 py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900/20 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-neonPink/10 to-lightBlue/10 rounded-full filter blur-3xl animate-blob" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-darkBlue/10 to-neonBlue/10 rounded-full filter blur-3xl animate-blob-2" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-5xl md:text-6xl text-darkBlue dark:text-neonBlue font-play font-bold mb-6">
-              Get to <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent">Know</span> Us Better
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-darkBlue dark:text-neonBlue font-play font-bold mb-4 sm:mb-6 leading-tight">
+              Get to <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent animate-rotate-gradient bg-size-200">Know</span> Us Better
             </h2>
-            <p className="text-lg text-foreground dark:text-gray-300 tracking-tight max-w-3xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg text-foreground dark:text-gray-300 tracking-tight max-w-3xl mx-auto px-2">
               Empowering Businesses with Innovative Tech Solutions - ByteForger
               delivers cutting-edge software services to turn your vision into a
               digital masterpiece.
@@ -315,21 +320,24 @@ export default function Home() {
           </motion.div>
 
           <motion.div 
-            className="mb-20 text-center"
+            className="mb-16 sm:mb-20 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <p className="text-3xl md:text-4xl font-semibold font-play text-darkBlue dark:text-lightBlue mb-8">
+            <p className="text-2xl xs:text-3xl sm:text-4xl font-semibold font-play text-darkBlue dark:text-lightBlue mb-8">
               About ByteForger
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:w-5/6 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:w-5/6 mx-auto">
               <motion.div 
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, x: -20 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink"
+                initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">
-                  Welcome to ByteForger Solutions, a remote-first software company
+                <div className="text-4xl sm:text-5xl mb-4 text-neonPink">🌟</div>
+                <p className="text-muted-foreground dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                  Welcome to <span className="font-bold text-darkBlue dark:text-lightBlue">ByteForger Solutions</span>, a remote-first software company
                   proudly registered in Texas, USA. We are a dynamic team of
                   forward-thinking professionals passionate about crafting
                   innovative technology solutions that empower businesses to succeed
@@ -337,61 +345,75 @@ export default function Home() {
                 </p>
               </motion.div>
               <motion.div 
-                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow"
-                initial={{ opacity: 0, x: 20 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8 hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink"
+                initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <p className="text-muted-foreground dark:text-gray-300 leading-relaxed">
-                  As a startup, we are driven by ambition, creativity, and a
-                  commitment to excellence. ByteForger Solutions specializes in full-stack development, 
+                <div className="text-4xl sm:text-5xl mb-4 text-darkPink">🚀</div>
+                <p className="text-muted-foreground dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                  As a startup, we are driven by <span className="font-bold text-darkBlue dark:text-lightBlue">ambition, creativity, and excellence</span>. ByteForger specializes in full-stack development, 
                   cloud architecture, AI integration, and digital transformation services designed to 
-                  accelerate business growth and innovation.
+                  accelerate business growth and innovation for startups and enterprises alike.
                 </p>
               </motion.div>
             </div>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="w-full">
-              <div className="bg-gradient-to-br from-darkBlue via-blue-800 to-lightBlue dark:from-neonPink dark:via-darkBlue dark:to-lightBlue rounded-3xl shadow-2xl p-8 md:p-10 relative overflow-hidden">
+            <motion.div 
+              className="w-full"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="bg-gradient-to-br from-darkBlue via-blue-800 to-lightBlue dark:from-neonPink dark:via-darkBlue dark:to-lightBlue rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 relative overflow-hidden hover:shadow-3xl transition-all duration-300">
                 <div className="absolute inset-0 opacity-10 bg-gradient-to-r from-white to-transparent"></div>
+                <motion.div 
+                  className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full filter blur-2xl"
+                  animate={{ x: [0, 20, 0], y: [0, 20, 0] }}
+                  transition={{ duration: 6, repeat: Infinity }}
+                />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold font-play text-white mb-6">Our Vision & Mission</h3>
-                  <p className="text-cream/95 leading-relaxed mb-6">
-                    We envision ByteForger Solutions as a beacon of trust and quality
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-play text-white mb-4 sm:mb-6">Our Vision & Mission</h3>
+                  <p className="text-cream/95 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                    We envision <span className="font-bold">ByteForger Solutions</span> as a beacon of trust and quality
                     in the software industry. Our mission is to continuously innovate,
                     deliver exceptional results, and grow alongside our clients.
                   </p>
-                  <p className="text-cream/85 text-base leading-relaxed">
+                  <p className="text-cream/85 text-sm sm:text-base leading-relaxed">
                     Whether you're a startup, a growing business, or an established
                     enterprise, we are here to help you turn your ideas into reality
                     through cutting-edge technology and dedicated partnership.
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="space-y-6">
+            </motion.div>
+            
+            <div className="space-y-4 sm:space-y-6">
               {[
                 { icon: "🎯", title: "Client-Centered Approach", desc: "Your goals are at the heart of everything we do. We listen, understand, and deliver solutions aligned with your vision." },
                 { icon: "⚡", title: "Agile Excellence", desc: "We adapt and innovate rapidly to ensure timely and cost-effective delivery without compromising quality." },
                 { icon: "🚀", title: "Cutting-Edge Expertise", desc: "Our team stays ahead of technology trends to provide you with the latest and most effective solutions." },
+                { icon: "💎", title: "Quality Assurance", desc: "We maintain the highest standards in every project, ensuring your solution is robust, scalable, and future-proof." },
               ].map((item, idx) => (
                 <motion.div 
                   key={idx} 
-                  className="flex gap-4 p-5 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow" 
+                  className="flex gap-3 sm:gap-4 p-4 sm:p-5 bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink hover:scale-105" 
                   data-testid={`card-about-value-${idx}`}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.1 }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
                 >
-                  <div className="text-3xl flex-shrink-0">{item.icon}</div>
-                  <div>
-                    <h4 className="font-bold font-play text-darkBlue dark:text-lightBlue mb-1 text-lg">{item.title}</h4>
-                    <p className="text-muted-foreground dark:text-gray-400 text-sm">{item.desc}</p>
+                  <div className="text-2xl sm:text-3xl flex-shrink-0 animate-bounce-slow" style={{ animationDelay: `${idx * 0.1}s` }}>{item.icon}</div>
+                  <div className="flex-1">
+                    <h4 className="font-bold font-play text-darkBlue dark:text-lightBlue mb-1 text-base sm:text-lg">{item.title}</h4>
+                    <p className="text-muted-foreground dark:text-gray-400 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

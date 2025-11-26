@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { navLinks } from "@/lib/constants";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
-import logoUrl from "@assets/logo_1764185200770.png";
+import logoUrl from "@assets/bf_logo_1764188700832.png";
 import addressIcon from "@assets/addressIcon_1764185200769.png";
 import callIcon from "@assets/callIcon_1764185200769.png";
 import mailIcon from "@assets/mailIcon_1764185200770.png";
@@ -35,8 +35,8 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-start items-start lg:items-start lg:space-x-10 lg:space-y-0 space-y-6">
           <div className="lg:w-2/5 w-full px-4 md:px-6 lg:px-0">
             <Link href="/">
-              <a className="inline-block hover:opacity-80 transition-opacity mb-4">
-                <img src={logoUrl} alt="ByteForger Logo" className="h-12 md:h-14" />
+              <a className="inline-block hover:opacity-80 transition-opacity mb-4 flex-shrink-0">
+                <img src={logoUrl} alt="ByteForger Logo" className="h-auto w-32 sm:w-40 md:w-44 object-contain" />
               </a>
             </Link>
             <p className="text-textGray dark:text-gray-400 my-4 text-sm md:text-base leading-relaxed">
