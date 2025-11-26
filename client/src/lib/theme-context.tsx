@@ -16,18 +16,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    
     // Load saved theme from localStorage
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     if (savedTheme) {
       setThemeState(savedTheme);
     }
+    setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
-
     const updateTheme = () => {
       let effectiveTheme: "light" | "dark" = "light";
 
@@ -58,15 +55,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     mediaQuery.addEventListener("change", updateTheme);
 
     return () => mediaQuery.removeEventListener("change", updateTheme);
-  }, [theme, mounted]);
+  }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
   };
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
