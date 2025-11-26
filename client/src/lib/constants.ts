@@ -1,4 +1,4 @@
-import { Code, Globe, Cloud, Smartphone, LineChart, Wrench, Database, Shield, Zap, Users, Target, CheckCircle } from "lucide-react";
+import { Code, Globe, Cloud, Smartphone, LineChart, Wrench, Database, Shield, Zap, Users, Target, CheckCircle, Bug, Cpu } from "lucide-react";
 
 export const services = [
   {
@@ -9,45 +9,45 @@ export const services = [
   },
   {
     id: 2,
+    title: "Software Development",
+    desc: "End-to-end software development with full-stack expertise. We craft scalable, maintainable applications tailored to your business requirements and goals.",
+    image: Code,
+  },
+  {
+    id: 3,
     title: "Cloud Solutions",
     desc: "Design and deploy scalable cloud infrastructure on AWS, Azure, and GCP. Expert cloud architecture, migration, and DevOps services.",
     image: Cloud,
   },
   {
-    id: 3,
+    id: 4,
     title: "Mobile Development",
     desc: "Native and cross-platform mobile applications for iOS and Android. Beautiful, performant apps that users love.",
     image: Smartphone,
   },
   {
-    id: 4,
+    id: 5,
+    title: "Software Testing & QA",
+    desc: "Comprehensive quality assurance and testing services. Automated testing, performance testing, security testing, and end-to-end testing to ensure flawless software.",
+    image: Bug,
+  },
+  {
+    id: 6,
     title: "AI & Machine Learning",
     desc: "Integrate advanced AI/ML capabilities into your applications. From natural language processing to computer vision and predictive analytics.",
     image: Zap,
   },
   {
-    id: 5,
-    title: "Custom Software",
-    desc: "Tailored software solutions built specifically for your business needs. Full-stack development with modern frameworks and best practices.",
-    image: Code,
-  },
-  {
-    id: 6,
+    id: 7,
     title: "Data Analytics",
     desc: "Transform raw data into actionable insights. Business intelligence, data visualization, and analytics dashboard development.",
     image: LineChart,
   },
   {
-    id: 7,
-    title: "API Development",
-    desc: "RESTful and GraphQL API design and implementation. Secure, scalable backend services with comprehensive documentation.",
-    image: Database,
-  },
-  {
     id: 8,
-    title: "DevOps & CI/CD",
-    desc: "Automated deployment pipelines, container orchestration with Docker/Kubernetes, and infrastructure as code implementation.",
-    image: Wrench,
+    title: "Security & DevOps",
+    desc: "Secure infrastructure, automated deployments, and continuous integration. Docker, Kubernetes, CI/CD pipelines, and comprehensive security audits included.",
+    image: Shield,
   },
 ];
 
