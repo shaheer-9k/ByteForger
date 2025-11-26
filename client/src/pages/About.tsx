@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CheckCircle, Target, Users, Zap } from "lucide-react";
+import teamImg from "@assets/aboutUs_1764185200768.jpg";
 import { services } from "../lib/constants";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -161,12 +162,11 @@ export default function About() {
 
         <div className="flex flex-col lg:flex-row justify-center items-center px-8 lg:px-20 my-10 gap-8">
           <div className="w-full lg:w-2/5 flex justify-center">
-            <div className="w-full max-w-md aspect-square bg-gradient-to-br from-darkBlue/10 to-darkPink/10 rounded-2xl flex items-center justify-center">
-              <div className="text-center p-8">
-                <h3 className="text-6xl mb-4">🚀</h3>
-                <p className="text-2xl font-play font-bold text-darkBlue">Building the Future</p>
-              </div>
-            </div>
+            <img
+              src={teamImg}
+              alt="ByteForger Team"
+              className="w-full max-w-md rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
+            />
           </div>
           <div className="w-full lg:w-3/5">
             <h2 className="text-darkBlue text-3xl font-bold font-play mb-4">

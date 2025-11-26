@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+import Portfolio from "../components/Portfolio";
 import { services, approaches, techStack } from "../lib/constants";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -207,6 +208,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Portfolio />
 
       <section id="techstack" className="mt-14 bg-gradient-to-b from-background to-gray-50 py-16">
         <div className="container mx-auto px-4">

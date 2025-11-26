@@ -1,6 +1,10 @@
 import { Link, useLocation } from "wouter";
 import { navLinks } from "@/lib/constants";
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import logoUrl from "@assets/logo_1764185200770.png";
+import addressIcon from "@assets/addressIcon_1764185200769.png";
+import callIcon from "@assets/callIcon_1764185200769.png";
+import mailIcon from "@assets/mailIcon_1764185200770.png";
 
 const socialLinks = [
   { icon: Facebook, url: "https://facebook.com/byteforger", name: "Facebook" },
@@ -31,17 +35,34 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-start items-start lg:items-start lg:space-x-10 lg:space-y-0 space-y-6">
           <div className="lg:w-2/5 w-full px-4 md:px-6 lg:px-0">
             <Link href="/">
-              <a className="inline-block text-3xl font-play font-bold text-darkBlue hover:text-lightBlue transition-colors">
-                ByteForger
+              <a className="inline-block hover:opacity-80 transition-opacity mb-4">
+                <img src={logoUrl} alt="ByteForger Logo" className="h-12 md:h-14" />
               </a>
             </Link>
             <p className="text-textGray my-4 text-sm md:text-base leading-relaxed">
               ByteForger - Crafting digital excellence through innovative software solutions. 
               We help build and manage world-class development teams to bring your vision to life.
             </p>
-            <p className="text-textGray text-sm">
-              <span className="font-semibold">Email:</span> info@byteforger.com
-            </p>
+            <div className="space-y-2 mt-4">
+              <div className="flex items-center gap-2">
+                <img src={mailIcon} alt="Email" className="w-4 h-4" />
+                <a href="mailto:info@byteforger.com" className="text-textGray hover:text-darkPink text-sm transition-colors">
+                  info@byteforger.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <img src={callIcon} alt="Phone" className="w-4 h-4" />
+                <a href="tel:+1234567890" className="text-textGray hover:text-darkPink text-sm transition-colors">
+                  +1 (234) 567-890
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <img src={addressIcon} alt="Address" className="w-4 h-4" />
+                <p className="text-textGray text-sm">
+                  Texas, USA
+                </p>
+              </div>
+            </div>
           </div>
           
           <div className="flex flex-col justify-start items-start w-full md:w-1/2 lg:w-1/5">

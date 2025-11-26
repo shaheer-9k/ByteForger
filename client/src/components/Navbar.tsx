@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { navLinks } from "@/lib/constants";
 import { Menu, X } from "lucide-react";
+import logoUrl from "@assets/logo_1764185200770.png";
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);
@@ -22,7 +23,7 @@ export default function Navbar() {
       
       setLastScrollY(currentScrollY);
 
-      const sections = ["services", "methodology", "techstack"];
+      const sections = ["services", "portfolio", "methodology", "techstack"];
       const scrollPos = window.scrollY + 100;
 
       for (let section of sections) {
@@ -109,8 +110,8 @@ export default function Navbar() {
     }`}>
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto">
         <Link href="/" data-testid="link-home">
-          <a className="text-2xl md:text-3xl font-play font-bold text-darkBlue hover:text-lightBlue transition-colors">
-            ByteForger
+          <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src={logoUrl} alt="ByteForger Logo" className="h-8 md:h-10" />
           </a>
         </Link>
 
