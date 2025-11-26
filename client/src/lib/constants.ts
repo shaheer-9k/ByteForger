@@ -127,8 +127,8 @@ export const techStack = {
 export const navLinks = [
   { id: 1, text: "Home", section: "/" },
   { id: 2, text: "Services", section: "#services" },
-  { id: 3, text: "Portfolio", section: "#portfolio" },
-  { id: 4, text: "Methodology", section: "#methodology" },
+  { id: 3, text: "Methodology", section: "#methodology" },
+  { id: 4, text: "Portfolio", section: "#portfolio" },
   { id: 5, text: "Tech Stack", section: "#techstack" },
-  { id: 6, text: "About", section: "/about" },
+  { id: 6, text: "About", section: "#about" },
 ];

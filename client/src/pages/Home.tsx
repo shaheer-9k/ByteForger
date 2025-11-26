@@ -247,6 +247,84 @@ export default function Home() {
 
       <Portfolio />
 
+      <section id="about" className="mt-14 py-16 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-5xl text-darkBlue font-play font-bold mb-6">
+              Get to <span className="text-darkPink">Know</span> Us Better
+            </h2>
+            <p className="text-lg text-foreground tracking-tight max-w-3xl">
+              Empowering Businesses with Innovative Tech Solutions - ByteForger
+              delivers cutting-edge software services to turn your vision into a
+              digital masterpiece.
+            </p>
+          </div>
+
+          <div className="mb-16 text-center">
+            <p className="text-3xl font-semibold font-play text-foreground mb-8">
+              About Us
+            </p>
+            <div className="flex flex-col items-center lg:w-3/4 mx-auto">
+              <p className="text-center text-muted-foreground leading-relaxed mb-4">
+                Welcome to ByteForger Solutions, a remote-first software company
+                proudly registered in Texas, USA. We are a dynamic team of
+                forward-thinking professionals passionate about crafting
+                innovative technology solutions that empower businesses to succeed
+                in today's fast-paced digital landscape.
+              </p>
+              <p className="text-center text-muted-foreground leading-relaxed">
+                As a startup, we are driven by ambition, creativity, and a
+                commitment to excellence. ByteForger Solutions specializes in a
+                wide range of software services.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="w-full flex justify-center">
+              <div className="w-full max-w-md bg-gradient-to-br from-darkBlue to-lightBlue rounded-2xl shadow-xl p-8">
+                <h3 className="text-2xl font-bold font-play text-white mb-6">Our Vision</h3>
+                <p className="text-cream leading-relaxed mb-6">
+                  We envision ByteForger Solutions as a beacon of trust and quality
+                  in the software industry. Our mission is to continuously innovate,
+                  deliver exceptional results, and grow alongside our clients.
+                </p>
+                <p className="text-cream/90 text-sm">
+                  Whether you're a startup, a growing business, or an established
+                  enterprise, we are here to help you turn your ideas into reality.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-6">
+              {[
+                { title: "Client-Centered Approach", desc: "Your goals are at the heart of everything we do." },
+                { title: "Agile Processes", desc: "We adapt to ensure timely and cost-effective delivery." },
+                { title: "Cutting-Edge Expertise", desc: "Our team stays ahead to provide you with the latest technology solutions." },
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-4" data-testid={`card-about-value-${idx}`}>
+                  <div className="flex-shrink-0 w-6 h-6 text-neonPink flex items-center justify-center">✓</div>
+                  <div>
+                    <h4 className="font-bold font-play text-darkBlue mb-1">{item.title}</h4>
+                    <p className="text-muted-foreground text-sm">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h3 className="text-3xl font-bold font-play text-darkBlue mb-4">
+              At ByteForger, every project is an opportunity to forge something
+              extraordinary. Let's build the future together!
+            </h3>
+            <p className="text-textGray leading-relaxed max-w-3xl mx-auto">
+              Contact us today to start your journey with ByteForger Solutions.
+              We're here to shape your vision into a digital masterpiece.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section id="techstack" className="mt-14 bg-gradient-to-b from-background to-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
