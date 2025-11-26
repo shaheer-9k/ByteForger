@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
@@ -11,11 +12,11 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 4,
-    slidesToSlide: 2,
+    slidesToSlide: 1,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
-    items: 3,
+    items: 2,
     slidesToSlide: 1,
   },
   mobile: {
@@ -82,33 +83,40 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section className="py-16 bg-gradient-to-r from-darkBlue to-blue-800 text-white">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-play mb-6">
-            Transforming Ideas Into Digital Excellence
+      <section className="py-20 bg-gradient-to-r from-darkBlue via-blue-800 to-lightBlue text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-white rounded-full mix-blend-screen filter blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-neonPink rounded-full mix-blend-screen filter blur-3xl"></div>
+        </div>
+        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold font-play mb-6">
+            Transforming Ideas Into <span className="bg-gradient-to-r from-neonPink to-cream bg-clip-text text-transparent">Digital Excellence</span>
           </h2>
-          <p className="text-xl leading-relaxed max-w-4xl mx-auto mb-8">
+          <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12">
             <strong>ByteForger</strong> is a technology consulting firm specializing in modern software development, 
             cloud architecture, and AI solutions. We partner with businesses to create scalable, 
             innovative digital experiences that drive growth and competitive advantage.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="text-center" data-testid="card-rapid-development">
-              <div className="text-4xl mb-2">🚀</div>
-              <div className="text-lg font-semibold">Rapid Development</div>
-              <div className="text-sm text-blue-100 mt-2">Agile approach for fast delivery</div>
-            </div>
-            <div className="text-center" data-testid="card-innovation">
-              <div className="text-4xl mb-2">💡</div>
-              <div className="text-lg font-semibold">Innovation Focus</div>
-              <div className="text-sm text-blue-100 mt-2">Latest tech & best practices</div>
-            </div>
-            <div className="text-center" data-testid="card-partnership">
-              <div className="text-4xl mb-2">🤝</div>
-              <div className="text-lg font-semibold">Partnership Mindset</div>
-              <div className="text-sm text-blue-100 mt-2">Your success is our priority</div>
-            </div>
-          </div>
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+            {[
+              { icon: "⚡", title: "Rapid Development", desc: "Agile approach for fast delivery", testid: "card-rapid-development" },
+              { icon: "💡", title: "Innovation Focus", desc: "Latest tech & best practices", testid: "card-innovation" },
+              { icon: "🎯", title: "Partnership Mindset", desc: "Your success is our priority", testid: "card-partnership" },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className="group p-8 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all duration-300"
+                data-testid={item.testid}
+              >
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                <div className="text-xl font-semibold mb-2">{item.title}</div>
+                <div className="text-sm text-blue-100">{item.desc}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -133,33 +141,43 @@ export default function Home() {
           <Carousel
             swipeable={true}
             draggable={true}
-            showDots={false}
+            showDots={true}
             responsive={responsive}
             ssr={true}
             infinite={true}
             keyBoardControl={true}
-            customTransition="transform 800ms ease-in-out"
-            transitionDuration={800}
+            customTransition="transform 600ms cubic-bezier(0.4, 0, 0.2, 1)"
+            transitionDuration={600}
             containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
+            autoPlay={true}
+            autoPlaySpeed={4000}
+            removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
           >
-            {services.map((service) => {
+            {services.map((service, index) => {
               const Icon = service.image;
               return (
                 <div
                   key={service.id}
-                  className="h-80 sm:h-96 md:h-[400px] lg:h-[450px] xl:h-[500px] bg-white p-4 m-2 rounded-lg shadow-md hover:shadow-xl flex flex-col items-center transition ease-out duration-300"
+                  className="h-full min-h-80 sm:min-h-96 md:min-h-[400px] p-3"
                   data-testid={`card-service-${service.id}`}
                 >
-                  <div className="my-2 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center text-darkBlue">
-                    <Icon className="w-full h-full" />
+                  <div className="group h-full bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl p-8 flex flex-col items-center justify-start transition-all duration-500 overflow-hidden relative border border-gray-100 hover:border-lightBlue">
+                    <div className="absolute inset-0 bg-gradient-to-br from-darkBlue/0 via-transparent to-darkPink/0 group-hover:from-darkBlue/5 group-hover:to-darkPink/5 transition-all duration-500" />
+                    
+                    <div className="relative z-10 w-full flex flex-col items-center">
+                      <div className="mb-4 p-4 bg-gradient-to-br from-darkBlue/10 to-lightBlue/10 rounded-2xl group-hover:scale-110 group-hover:from-darkBlue/20 group-hover:to-lightBlue/20 transition-all duration-300">
+                        <Icon className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-darkBlue group-hover:text-darkPink transition-colors duration-300" />
+                      </div>
+                      <p className="font-bold font-play text-center text-lg md:text-xl text-darkBlue mb-3 group-hover:text-darkPink transition-colors duration-300">
+                        {service.title}
+                      </p>
+                      <p className="text-center text-sm md:text-base text-textGray group-hover:text-foreground transition-colors duration-300 leading-relaxed">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-darkBlue via-lightBlue to-darkPink transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   </div>
-                  <p className="font-semibold font-play text-center my-2 text-lg text-darkBlue">
-                    {service.title}
-                  </p>
-                  <p className="text-balance mb-2 text-sm text-textGray text-center">
-                    {service.desc}
-                  </p>
                 </div>
               );
             })}
@@ -167,45 +185,59 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="methodology" className="bg-darkBlue mt-14">
-        <div className="container mx-auto px-4 py-16 max-w-7xl">
-          <div className="text-center mb-12">
+      <section id="methodology" className="bg-gradient-to-br from-darkBlue via-blue-900 to-darkBlue mt-14 relative overflow-hidden py-20">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full border border-neonPink"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full border border-lightBlue"></div>
+        </div>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+          >
             <p className="text-white text-2xl font-play">
-              Workflow and <br />{" "}
-              <span className="text-4xl font-semibold text-neonPink">
+              Our <br />{" "}
+              <span className="text-5xl font-bold bg-gradient-to-r from-neonPink to-cream bg-clip-text text-transparent">
                 Methodology
               </span>
             </p>
-          </div>
-          <div 
+          </motion.div>
+          <motion.div 
             ref={ref2}
             className={`grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center transition-opacity ease-in duration-700 ${
               isVisible2 ? "opacity-100" : "opacity-0"
             }`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
           >
-            {approaches.map((item) => {
+            {approaches.map((item, idx) => {
               const Icon = item.image;
               return (
-                <div
+                <motion.div
                   key={item.id}
-                  className="border border-lightBlue p-6 flex flex-row justify-between items-center w-full max-w-xl rounded-lg hover:bg-lightBlue/5 transition-all duration-300"
+                  initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1 }}
+                  whileHover={{ x: 8 }}
+                  className="group bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/20 p-8 flex flex-row justify-between items-center w-full max-w-xl rounded-2xl hover:border-neonPink/50 hover:bg-white/20 transition-all duration-300"
                   data-testid={`card-approach-${item.id}`}
                 >
-                  <div className="flex-shrink-0 text-neonBlue">
-                    <Icon className="w-12 h-12" />
+                  <div className="flex-shrink-0 text-neonBlue group-hover:scale-110 group-hover:text-neonPink transition-all duration-300">
+                    <Icon className="w-14 h-14" />
                   </div>
-                  <div className="ml-4 flex-1">
-                    <p className="text-lg font-bold font-play text-neonBlue mb-2">
+                  <div className="ml-6 flex-1">
+                    <p className="text-lg font-bold font-play text-neonBlue group-hover:text-cream mb-2 transition-colors">
                       {item.title}
                     </p>
-                    <p className="text-cream font-light text-sm leading-relaxed">
+                    <p className="text-cream/90 font-light text-sm leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
