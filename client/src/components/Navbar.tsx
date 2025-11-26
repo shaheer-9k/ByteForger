@@ -111,9 +111,9 @@ export default function Navbar() {
     }`}>
       <div className="flex justify-between items-center p-4 max-w-7xl mx-auto w-full">
         <Link href="/" data-testid="link-home">
-          <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <div className="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer">
             <img src={logoUrl} alt="ByteForger Logo" className="h-8 md:h-10" />
-          </a>
+          </div>
         </Link>
 
         <nav className="hidden md:flex md:flex-row items-center lg:text-lg md:text-md text-sm gap-2" aria-label="Main navigation">
@@ -133,30 +133,30 @@ export default function Navbar() {
               </button>
             ) : (
               <Link key={item.id} href={item.section}>
-                <a
+                <div
                   data-testid={`link-${item.text.toLowerCase()}`}
-                  className={`text-center mx-4 font-play transition-colors duration-300 text-foreground dark:text-gray-200 ${
+                  className={`text-center mx-4 font-play transition-colors duration-300 text-foreground dark:text-gray-200 cursor-pointer ${
                     isLinkActive(item.section) 
                       ? "text-lightBlue border-b-2 border-lightBlue dark:text-lightBlue dark:border-lightBlue" 
                       : "hover:text-lightBlue dark:hover:text-lightBlue"
                   }`}
                 >
                   {item.text}
-                </a>
+                </div>
               </Link>
             )
           ))}
           <Link href="/contact">
-            <a
+            <div
               data-testid="link-contact"
-              className={`text-xs sm:text-sm md:text-base rounded-full py-2.5 px-6 md:px-7 mx-2 font-play font-bold transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 whitespace-nowrap flex items-center gap-1 bg-gradient-to-r ${
+              className={`text-xs sm:text-sm md:text-base rounded-full py-2.5 px-6 md:px-7 mx-2 font-play font-bold transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 whitespace-nowrap flex items-center gap-1 bg-gradient-to-r cursor-pointer ${
                 location === "/contact" 
                   ? "from-lightBlue to-neonBlue text-white shadow-md" 
                   : "from-darkBlue to-lightBlue text-white shadow-md hover:shadow-xl dark:from-neonPink dark:to-lightBlue"
               }`}
             >
               <span>Contact Us</span>
-            </a>
+            </div>
           </Link>
           <ThemeToggle />
         </nav>
@@ -191,9 +191,9 @@ export default function Navbar() {
               </button>
             ) : (
               <Link key={item.id} href={item.section}>
-                <a
+                <div
                   data-testid={`link-mobile-${item.text.toLowerCase()}`}
-                  className={`w-full py-3 px-4 text-center text-base sm:text-lg font-play transition-colors duration-300 border-b border-gray-100 dark:border-gray-700 block text-foreground dark:text-gray-200 ${
+                  className={`w-full py-3 px-4 text-center text-base sm:text-lg font-play transition-colors duration-300 border-b border-gray-100 dark:border-gray-700 block text-foreground dark:text-gray-200 cursor-pointer ${
                     isLinkActive(item.section) 
                       ? "text-lightBlue bg-blue-50 dark:bg-gray-800 dark:text-lightBlue" 
                       : "hover:text-lightBlue hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-lightBlue"
@@ -201,22 +201,22 @@ export default function Navbar() {
                   onClick={() => setNav(false)}
                 >
                   {item.text}
-                </a>
+                </div>
               </Link>
             )
           ))}
           <Link href="/contact">
-            <a
+            <div
               data-testid="link-mobile-contact"
               onClick={() => setNav(false)}
-              className={`w-4/5 text-center text-base font-play font-bold rounded-full py-3 px-6 my-3 transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 bg-gradient-to-r ${
+              className={`w-4/5 text-center text-base font-play font-bold rounded-full py-3 px-6 my-3 transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 bg-gradient-to-r cursor-pointer ${
                 location === "/contact" 
                   ? "from-lightBlue to-neonBlue text-white shadow-md" 
                   : "from-darkBlue to-lightBlue text-white shadow-md dark:from-neonPink dark:to-lightBlue"
               }`}
             >
               Contact Us
-            </a>
+            </div>
           </Link>
           <div className="w-full flex justify-center py-4">
             <ThemeToggle />
