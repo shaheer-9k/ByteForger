@@ -80,7 +80,7 @@ export default function ContactForm() {
 
       <div className="relative z-10">
         <div className="text-center mb-6 lg:mb-8">
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-black dark:text-white font-play mb-2">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-black dark:text-lightBlue font-play mb-2">
             Send us a Message
           </h2>
           <p className="text-muted-foreground text-sm lg:text-base">
@@ -97,7 +97,7 @@ export default function ContactForm() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium text-gray-800 dark:text-white">
+                <Label htmlFor="name" className="text-sm font-medium text-gray-800 dark:text-lightBlue">
                   Full Name <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -121,7 +121,7 @@ export default function ContactForm() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-gray-800 dark:text-white">
+                <Label htmlFor="email" className="text-sm font-medium text-gray-800 dark:text-lightBlue">
                   Email Address <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -146,7 +146,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="subject" className="text-sm font-medium text-gray-800 dark:text-white">
+              <Label htmlFor="subject" className="text-sm font-medium text-gray-800 dark:text-lightBlue">
                 Subject <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -170,7 +170,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message" className="text-sm font-medium text-gray-800 dark:text-white">
+              <Label htmlFor="message" className="text-sm font-medium text-gray-800 dark:text-lightBlue">
                 Message <span className="text-red-500">*</span>
               </Label>
               <Textarea
