@@ -80,7 +80,7 @@ export default function ContactForm() {
 
       <div className="relative z-10">
         <div className="text-center mb-6 lg:mb-8">
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-darkBlue font-play mb-2">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-black dark:text-white font-play mb-2">
             Send us a Message
           </h2>
           <p className="text-muted-foreground text-sm lg:text-base">
