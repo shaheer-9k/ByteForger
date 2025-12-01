@@ -64,9 +64,9 @@ export default function Hero() {
           variants={itemVariants}
           className="text-xs sm:text-base md:text-lg lg:text-xl text-foreground tracking-tight mb-3 sm:mb-4 leading-relaxed max-w-2xl"
         >
-          ByteForger specializes in full-stack development, cloud solutions, and AI integration. 
-          From modern web applications to scalable cloud infrastructure, we deliver 
-          cutting-edge technology solutions that drive business growth.
+          We engineer enterprise-grade software solutions that accelerate business transformation. 
+          From full-stack development to cloud architecture, we combine strategic expertise with 
+          proven execution to deliver measurable results for enterprises and startups.
         </motion.p>
         
         
@@ -79,7 +79,7 @@ export default function Hero() {
             onClick={() => window.location.href = '/contact'}
             className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-r from-darkBlue to-lightBlue text-white font-play font-bold rounded-xl py-3 sm:py-4 px-8 sm:px-10 hover:shadow-2xl hover:scale-110 transition-all duration-300 whitespace-nowrap text-xs sm:text-base group animate-glow"
           >
-            Let's get started!
+            Start Your Project
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform duration-300" />
           </button>
           <motion.button

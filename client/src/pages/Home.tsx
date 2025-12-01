@@ -94,15 +94,15 @@ export default function Home() {
             Transforming Ideas Into <span className="bg-gradient-to-r from-neonPink to-cream bg-clip-text text-transparent">Digital Excellence</span>
           </h2>
           <p className="text-sm xs:text-base sm:text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-8 sm:mb-12 px-2">
-            <strong>ByteForger</strong> is a technology consulting firm specializing in modern software development, 
-            cloud architecture, and AI solutions. We partner with businesses to create scalable, 
-            innovative digital experiences that drive growth and competitive advantage.
+            <strong>ByteForger</strong> transforms enterprises through strategic technology implementation. 
+            We deliver high-impact software solutions that drive operational excellence, accelerate market entry, 
+            and unlock sustainable competitive advantage.
           </p>
           <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-12 sm:mt-16">
             {[
-              { icon: "⚡", title: "Rapid Development", desc: "Agile approach for fast delivery", testid: "card-rapid-development" },
-              { icon: "💡", title: "Innovation Focus", desc: "Latest tech & best practices", testid: "card-innovation" },
-              { icon: "🎯", title: "Partnership Mindset", desc: "Your success is our priority", testid: "card-partnership" },
+              { icon: "⚡", title: "Proven Execution", desc: "Agile methodology with guaranteed delivery", testid: "card-rapid-development" },
+              { icon: "💡", title: "Strategic Innovation", desc: "Enterprise-grade technology solutions", testid: "card-innovation" },
+              { icon: "🎯", title: "Committed Partnership", desc: "Your goals drive our success", testid: "card-partnership" },
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -133,9 +133,9 @@ export default function Home() {
               Our Services
             </p>
             <p className="text-sm xs:text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-              ByteForger delivers comprehensive technology solutions to transform your business. 
-              From cutting-edge web development to scalable cloud infrastructure and AI integration, 
-              we're your partner in digital innovation.
+              We architect end-to-end technology solutions that optimize operations and drive measurable business outcomes. 
+              Our expertise spans full-stack development, cloud infrastructure, and digital transformation—delivered 
+              with enterprise-grade quality and accountability.
             </p>
           </div>
           
@@ -310,12 +310,12 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl text-darkBlue dark:text-neonBlue font-play font-bold mb-4 sm:mb-6 leading-tight">
-              Get to <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent animate-rotate-gradient bg-size-200">Know</span> Us Better
+              Who <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent animate-rotate-gradient bg-size-200">We Are</span>
             </h2>
             <p className="text-sm xs:text-base sm:text-lg text-foreground dark:text-gray-300 tracking-tight max-w-3xl mx-auto px-2">
-              Empowering Businesses with Innovative Tech Solutions - ByteForger
-              delivers cutting-edge software services to turn your vision into a
-              digital masterpiece.
+              ByteForger is a remote-first technology firm dedicated to building transformative solutions 
+              that accelerate business growth. We combine deep technical expertise with strategic business 
+              acumen to deliver results.
             </p>
           </motion.div>
 
@@ -337,11 +337,10 @@ export default function Home() {
               >
                 <div className="text-4xl sm:text-5xl mb-4 text-neonPink">🌟</div>
                 <p className="text-muted-foreground dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                  Welcome to <span className="font-bold text-darkBlue dark:text-lightBlue">ByteForger Solutions</span>, a remote-first software company
-                  proudly registered in Texas, USA. We are a dynamic team of
-                  forward-thinking professionals passionate about crafting
-                  innovative technology solutions that empower businesses to succeed
-                  in today's fast-paced digital landscape.
+                  <span className="font-bold text-darkBlue dark:text-lightBlue">ByteForger Solutions</span> is a remote-first software engineering firm 
+                  headquartered in Texas. Our team brings specialized expertise in enterprise software development, 
+                  cloud architecture, and digital transformation—helping businesses scale efficiently and maintain 
+                  competitive advantage in a rapidly evolving technology landscape.
                 </p>
               </motion.div>
               <motion.div 
@@ -352,9 +351,9 @@ export default function Home() {
               >
                 <div className="text-4xl sm:text-5xl mb-4 text-darkPink">🚀</div>
                 <p className="text-muted-foreground dark:text-gray-300 leading-relaxed text-sm sm:text-base">
-                  As a startup, we are driven by <span className="font-bold text-darkBlue dark:text-lightBlue">ambition, creativity, and excellence</span>. ByteForger specializes in full-stack development, 
-                  cloud architecture, AI integration, and digital transformation services designed to 
-                  accelerate business growth and innovation for startups and enterprises alike.
+                  We partner with visionary leaders to build <span className="font-bold text-darkBlue dark:text-lightBlue">high-impact technology solutions</span>. 
+                  Our specialties include full-stack development, cloud infrastructure, and strategic digital transformation—
+                  delivering measurable results for organizations at every stage of growth.
                 </p>
               </motion.div>
             </div>
@@ -382,14 +381,14 @@ export default function Home() {
                 <div className="relative z-10">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-play text-white mb-4 sm:mb-6">Our Vision & Mission</h3>
                   <p className="text-cream/95 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                    We envision <span className="font-bold">ByteForger Solutions</span> as a beacon of trust and quality
-                    in the software industry. Our mission is to continuously innovate,
-                    deliver exceptional results, and grow alongside our clients.
+                    <span className="font-bold">ByteForger Solutions</span> is recognized as the trusted technology partner 
+                    for enterprises seeking strategic digital advantage. We execute ambitious technology initiatives with 
+                    precision, accountability, and measurable impact.
                   </p>
                   <p className="text-cream/85 text-sm sm:text-base leading-relaxed">
-                    Whether you're a startup, a growing business, or an established
-                    enterprise, we are here to help you turn your ideas into reality
-                    through cutting-edge technology and dedicated partnership.
+                    From emerging startups to established enterprises, we deliver 
+                    technology solutions that drive operational excellence, accelerate growth, and position 
+                    your organization for sustained competitive advantage.
                   </p>
                 </div>
               </div>
@@ -397,10 +396,10 @@ export default function Home() {
             
             <div className="space-y-4 sm:space-y-6">
               {[
-                { icon: "🎯", title: "Client-Centered Approach", desc: "Your goals are at the heart of everything we do. We listen, understand, and deliver solutions aligned with your vision." },
-                { icon: "⚡", title: "Agile Excellence", desc: "We adapt and innovate rapidly to ensure timely and cost-effective delivery without compromising quality." },
-                { icon: "🚀", title: "Cutting-Edge Expertise", desc: "Our team stays ahead of technology trends to provide you with the latest and most effective solutions." },
-                { icon: "💎", title: "Quality Assurance", desc: "We maintain the highest standards in every project, ensuring your solution is robust, scalable, and future-proof." },
+                { icon: "🎯", title: "Outcome-Driven Approach", desc: "Strategic alignment at every stage. We establish clear objectives and deliver solutions that drive measurable business impact." },
+                { icon: "⚡", title: "Enterprise Agility", desc: "Rapid iteration without compromise. Our proven methodologies ensure on-time delivery while maintaining production-grade quality." },
+                { icon: "🚀", title: "Advanced Expertise", desc: "Deep technical mastery across modern software architecture, cloud infrastructure, and digital transformation disciplines." },
+                { icon: "💎", title: "Uncompromising Quality", desc: "Enterprise-grade standards applied to every project. We deliver robust, scalable solutions engineered for long-term performance." },
               ].map((item, idx) => (
                 <motion.div 
                   key={idx} 
