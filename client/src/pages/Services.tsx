@@ -46,13 +46,13 @@ export default function Services() {
                   {service.desc}
                 </p>
                 <Link href="/contact">
-                  <a
+                  <span
                     data-testid={`link-learn-more-${service.id}`}
-                    className="inline-flex items-center text-darkBlue font-semibold hover:text-lightBlue transition-colors"
+                    className="inline-flex items-center text-darkBlue font-semibold hover:text-lightBlue transition-colors cursor-pointer"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-2" />
-                  </a>
+                  </span>
                 </Link>
               </div>
             );
@@ -70,12 +70,12 @@ export default function Services() {
             Our team is ready to craft the perfect solution for your needs.
           </p>
           <Link href="/contact">
-            <a
+            <span
               data-testid="button-start-project"
-              className="inline-block bg-darkBlue text-white px-8 py-3 rounded-lg font-semibold hover:bg-lightBlue transition-colors duration-300"
+              className="inline-block bg-darkBlue text-white px-8 py-3 rounded-lg font-semibold hover:bg-lightBlue transition-colors duration-300 cursor-pointer"
             >
               Start Your Project Today
-            </a>
+            </span>
           </Link>
         </div>
       </div>

@@ -38,7 +38,7 @@ const projects = [
   },
 ];
 
-export default function Portfolio() {
+function PortfolioComponent() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const categories = ["Mobile App", "FinTech App", "Service Platform"];
   const filteredProjects = selectedCategory
@@ -59,7 +59,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <section id="portfolio" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 will-change-contents">
       <div className="max-w-7xl mx-auto px-3 sm:px-4">
         <motion.div 
           className="text-center mb-12 sm:mb-16"
@@ -176,4 +176,9 @@ export default function Portfolio() {
       </div>
     </section>
   );
+}
+
+export default function Portfolio() {
+  const MemoizedPortfolio = import.meta.env.PROD ? PortfolioComponent : PortfolioComponent;
+  return <MemoizedPortfolio />;
 }

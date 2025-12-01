@@ -1,0 +1,2 @@
+// Performance: Use React.memo to prevent unnecessary re-renders
+// Add will-change and transform3d to animations
