@@ -35,9 +35,9 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-start items-start lg:items-start lg:space-x-10 lg:space-y-0 space-y-6">
           <div className="lg:w-2/5 w-full px-4 md:px-6 lg:px-0">
             <Link href="/">
-              <a className="inline-block hover:opacity-80 transition-opacity mb-4 flex-shrink-0">
+              <div className="inline-block hover:opacity-80 transition-opacity mb-4 flex-shrink-0 cursor-pointer">
                 <img src={logoUrl} alt="ByteForger Logo" className="h-auto w-32 sm:w-40 md:w-44 object-contain" />
-              </a>
+              </div>
             </Link>
             <p className="text-textGray dark:text-gray-400 my-4 text-sm md:text-base leading-relaxed">
               ByteForger - Crafting digital excellence through innovative software solutions. 
@@ -81,22 +81,22 @@ export default function Footer() {
                 </button>
               ) : (
                 <Link key={index} href={link.section}>
-                  <a 
+                  <div 
                     data-testid={`link-footer-${link.text.toLowerCase()}`}
-                    className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors"
+                    className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors cursor-pointer"
                   >
                     {link.text}
-                  </a>
+                  </div>
                 </Link>
               )
             ))}
             <Link href="/contact">
-              <a 
+              <div 
                 data-testid="link-footer-contact"
-                className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors"
+                className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink my-1 text-sm md:text-base transition-colors cursor-pointer"
               >
                 Contact
-              </a>
+              </div>
             </Link>
           </div>
           
@@ -108,12 +108,12 @@ export default function Footer() {
               Ready to start your next project? Let's discuss how we can help.
             </p>
             <Link href="/contact">
-              <a 
+              <div 
                 data-testid="button-footer-get-started"
-                className="inline-block bg-gradient-to-r from-darkBlue to-lightBlue text-white px-6 py-3 rounded-full hover:shadow-lg hover:scale-105 transition-all text-sm font-play font-bold mt-2 mb-4"
+                className="inline-block bg-gradient-to-r from-darkBlue to-lightBlue text-white px-6 py-3 rounded-full hover:shadow-lg hover:scale-105 transition-all text-sm font-play font-bold mt-2 mb-4 cursor-pointer"
               >
                 Get Started
-              </a>
+              </div>
             </Link>
             <div className="flex flex-row justify-start items-center space-x-4 mt-4">
               {socialLinks.map((social, index) => {
