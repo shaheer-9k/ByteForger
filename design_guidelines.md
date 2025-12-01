@@ -1,124 +1,147 @@
-# ByteForger Website Design Guidelines
+# ByteForger Premium Business Design Guidelines
 
 ## Design Approach
-**Reference-Based:** Drawing inspiration from modern tech service websites like Innovate Technologies, Stripe, and Vercel, with emphasis on clean layouts, strategic whitespace, and trust-building elements.
+**Reference-Based:** Drawing from Stripe, Vercel, Linear, and premium tech consultancies. Emphasis on sophisticated enterprise aesthetic, generous whitespace, glassmorphism effects, and trust-building through visual polish.
 
-## Core Design Elements
-
-### A. Typography
-**Primary Font:** Playfair Display (font-play)
-- **Hero Headlines:** text-4xl to text-6xl (responsive), font-bold
-- **Section Titles:** text-3xl to text-4xl, font-semibold
+## Typography
+**Primary (Sans-serif):** Inter or SF Pro Display
+- **Hero Headlines:** text-5xl to text-7xl, font-bold, tracking-tight
+- **Section Titles:** text-3xl to text-5xl, font-semibold
 - **Subheadings:** text-xl to text-2xl, font-medium
-- **Body Text:** text-base to text-lg, normal weight
-- **Small Text:** text-sm for captions and metadata
 
-### B. Layout System
-**Spacing Units:** Use Tailwind's 4, 8, 12, 16, 20, 24, 32 for consistent rhythm
-- **Section Padding:** py-16 to py-24 on desktop, py-8 to py-12 on mobile
-- **Container Max-width:** max-w-7xl for primary content, max-w-6xl for text-heavy sections
-- **Grid Gaps:** gap-8 for desktop, gap-4 to gap-6 for mobile
-- **Vertical Rhythm:** Establish consistent spacing between sections (mb-16, mt-20)
+**Secondary (Serif):** Playfair Display
+- **Featured Quotes:** text-2xl to text-3xl, italic
+- **Testimonials:** text-lg, italic
+- **Accent Headlines:** Selected section titles for visual variety
 
-### C. Component Library
+**Body Text:** text-base to text-lg, leading-relaxed for readability
+**Small Text:** text-sm, opacity-70 for metadata
+
+## Color Palette
+**Dark Mode Foundation:**
+- Background: Deep Navy (#0A0E27), Dark Slate (#1A1F3A)
+- Surface: Charcoal (#1E2337) with glassmorphism overlays
+- Text: White/Off-white (#F8FAFC, #E2E8F0)
+
+**Light Mode Foundation:**
+- Background: Soft White (#FAFBFC), Light Gray (#F5F7FA)
+- Surface: White (#FFFFFF) with subtle shadows
+- Text: Deep Navy (#1A1F3A), Professional Gray (#4A5568)
+
+**Accent Colors:**
+- Primary Blue: #2563EB (CTAs, links)
+- Electric Pink: #EC4899 (highlights, hover states)
+- Success Green: #10B981
+- Gradient combinations: Blue-to-Pink, Navy-to-Indigo
+
+## Layout System
+**Spacing:** Tailwind units 8, 12, 16, 20, 24, 32, 40, 48
+- **Section Padding:** py-24 to py-32 desktop, py-16 mobile
+- **Container:** max-w-7xl with px-8 to px-12 horizontal padding
+- **Card Spacing:** p-8 to p-12 internal, gap-8 to gap-12 between
+- **Generous Margins:** mb-20 to mb-32 between major sections
+
+## Component Library
 
 **Navigation:**
-- Fixed navbar with auto-hide on scroll down, reveal on scroll up or hover at top
-- Logo aligned left, navigation center/right
-- Smooth scroll to anchored sections with offset for fixed navbar
-- Mobile: Full-screen overlay menu with centered links
+- Fixed glassmorphic navbar: backdrop-blur-xl, bg-white/80 (light) or bg-navy/80 (dark)
+- Subtle bottom border with shadow-lg
+- Logo left, navigation center, CTA button right
+- Mobile: Full-screen overlay with blur background
 
 **Hero Section:**
-- Two-column layout: Text (50%) + Visual grid (50%)
-- Four service cards in 2x2 grid with gradient backgrounds (blue, pink, green, purple)
-- Each card: Icon + Title + Short description
-- Hover effects: scale-110 on icons, shadow-xl on cards
-- Strong CTA button with border-2 and hover state transition
+- Full-width with large professional image (1920x1080 minimum)
+- Image: Modern office, tech team collaboration, or abstract tech visualization
+- Content overlay: Left-aligned (50% width), backdrop-blur-md background
+- Large headline + subtitle + dual CTAs (primary gradient, secondary outlined)
+- Buttons on blur background without additional hover blur effects
+- Height: 85vh to maintain visual impact
 
-**Services Carousel:**
-- Card-based with Swiper/Carousel library
-- 4 items desktop, 3 tablet, 1 mobile
-- Card height: h-80 to h-[500px] (responsive)
-- Smooth 800ms transitions
-- Auto-play with 5s interval
-- Shadow-md with hover:shadow-xl transitions
+**Service/Feature Cards:**
+- Glassmorphic design: bg-white/10 backdrop-blur-md (dark) or bg-white/90 (light)
+- Border: border border-white/20 (dark) or border-gray-200 (light)
+- Padding: p-10, rounded-2xl
+- Shadow: shadow-xl with hover:shadow-2xl
+- Icon container: Gradient background (blue-to-pink), rounded-full, p-4
+- Hover: Subtle translate-y-1 transform
 
 **Stats Section:**
-- 3-column grid on desktop, single column mobile
-- Large numbers with icons/emojis above
-- Gradient background (from-darkBlue to-blue-800)
-- White text on dark background
+- Dark gradient background (navy-to-slate) with white text
+- 4-column grid desktop, 2-column tablet, stacked mobile
+- Large numbers: text-5xl font-bold with gradient text effect
+- Icons above numbers, descriptive text below
+- Generous py-32 padding
 
-**Tech Stack:**
-- Category tabs for filtering (Frontend, Backend, Database, Cloud, DevOps, AI/ML)
-- Logo grid with external links
-- Hover: slight scale and shadow effects
-- 6-8 logos per row on desktop, responsive reduction
+**Tech Stack Grid:**
+- Logo cards: bg-white (light) or bg-slate-800 (dark), rounded-xl
+- Grayscale logos with color on hover
+- Grid: 6 columns desktop, 4 tablet, 2 mobile
+- Shadow-md with hover:shadow-xl, border border-gray-200/50
 
 **Contact Form:**
-- White card with shadow-xl and subtle gradient background overlay
-- Two-column layout: Info sidebar (40%) + Form (60%)
-- Sidebar includes: Why Choose section with icons, response time promise, CTA box
-- Form fields: Name, Email (row), Subject, Message (full-width)
-- Validation: red border-2, bg-red-50 for errors, inline error messages
-- Submit button: Gradient (darkBlue to neonPink) with loading state
-- Success/error alerts: Fixed top-right with auto-dismiss
+- Two-column split: Info panel (35%) + Form (65%)
+- Info panel: Dark gradient background, white text, glassmorphic card styling
+- Form: Premium white card (light) or dark glass card (dark mode)
+- Input fields: Generous padding (p-4), rounded-xl, border-2
+- Focus states: Ring-4 ring-blue-500/20, border-blue-500
+- Submit button: Full-width gradient (blue-to-pink), py-4, font-semibold
+- Validation: Inline below fields, red-500 text
 
 **Footer:**
-- Three-column: Branding + Navigation + Social/CTA
-- Social icons in circular containers with hover effects
-- Newsletter signup or CTA button
-- Copyright bar with border-top separator
+- Dark navy background (light mode) or deeper navy (dark mode)
+- Four columns: Branding + Services + Company + Contact
+- Social icons: Circular gradient backgrounds with white icons
+- Newsletter: Inline form with glassmorphic input + gradient button
+- Bottom bar: Copyright + legal links, border-top border-white/10
 
-### D. Animations
-**Use Sparingly:**
-- Lottie animations in Hero and About sections only
-- Fade-in on scroll for service cards (opacity-0 to opacity-100, duration-700)
-- Hover transitions: transform duration-300 ease-in-out
-- Button hover: slight -translate-y-1
-- Smooth scroll behavior for anchor links
-- No autoplay videos, no parallax effects
+## Visual Effects
 
-### E. Special Sections
+**Glassmorphism:**
+- Cards: backdrop-blur-xl bg-white/10 border border-white/20
+- Overlays: backdrop-blur-md with gradient backgrounds
+- Navigation: backdrop-blur-lg for fixed headers
 
-**Testimonials (if added):**
-- Carousel with 2-3 cards visible on desktop
-- Client photo + quote + name/company
-- Subtle card design, no heavy borders
+**Shadows:**
+- Cards: shadow-xl (resting), shadow-2xl (hover/active)
+- Elevated sections: shadow-2xl with blur-3xl for depth
+- Text shadows: Subtle on light text over images
 
-**Portfolio/Projects (if added):**
-- Masonry or 3-column grid
-- Project cards with image + title + brief description
-- Hover overlay with "View More" link
-
-**Call-to-Action Sections:**
-- Full-width with gradient backgrounds
-- Centered text with prominent button
-- py-16 padding for breathing room
+**Animations (Minimal):**
+- Fade-in on scroll: opacity-0 to opacity-100, duration-700
+- Card hover: transform translate-y-1, duration-300
+- Button: No additional animations beyond standard hover states
+- Smooth scroll: behavior smooth for anchor links
+- Loading states: Spinner or skeleton screens, no elaborate animations
 
 ## Images
-**Hero Section:** Use illustration/animation (Lottie) rather than photography - already implemented with service cards grid
-**About Section:** Professional team photo or office environment (400x400px)
-**Services:** Icon-based (SVG icons from provided assets)
-**Background Patterns:** Subtle gradient overlays, no busy textures
 
-## Responsive Breakpoints
-- **Mobile:** base (< 640px) - Single column, stacked elements
-- **Tablet:** md (768px) - Two columns where applicable
-- **Desktop:** lg (1024px) - Full multi-column layouts
-- **Large:** xl (1280px+) - Optimized spacing and typography scale
+**Hero Section:**
+- Large professional photograph: Modern tech office, collaborative workspace, or abstract digital art
+- Dimensions: 1920x1080 minimum, optimized for web
+- Treatment: Subtle gradient overlay (navy-to-transparent) for text contrast
+- Alternative: Video background (muted, 15s loop) for premium feel
+
+**Service Section:**
+- Icon-based (professional icon set from Heroicons or custom SVG)
+- No photography in service cards, maintain consistency
+
+**Team/About:**
+- Professional headshots or team photo (high-quality, well-lit)
+- Grid layout with rounded corners and subtle hover effects
+
+**Background Elements:**
+- Subtle gradient meshes or abstract geometric patterns
+- Low opacity decorative elements, never distracting
+
+## Responsive Behavior
+- **Mobile:** Single column, generous py-16 spacing, text-4xl headlines
+- **Tablet:** 2-column grids, py-20 spacing
+- **Desktop:** Full multi-column (up to 4), py-24 to py-32 spacing
+- Touch targets: Minimum 48px height for mobile buttons
 
 ## Accessibility
-- ARIA labels on all interactive elements
-- Semantic HTML structure (nav, section, footer)
-- Focus states on all buttons/links (ring-2 ring-darkBlue/20)
-- Alt text for all images
-- Keyboard navigation for carousel and menus
-
-## Key Differentiators from Generic Templates
-- Service cards with gradient backgrounds in hero (not typical centered hero)
-- Auto-hiding navbar with reveal on hover
-- Two-column contact page (info + form side-by-side)
-- Tech stack with category filtering
-- Workflow/methodology as visual cards, not text blocks
-- Professional gradient overlays instead of solid colors
+- WCAG AA contrast ratios for all text
+- Focus visible: ring-2 ring-blue-500 on all interactive elements
+- Semantic HTML: nav, main, section, article
+- ARIA labels for icon buttons and complex interactions
+- Keyboard navigation: Full support for all interactive components
