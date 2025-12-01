@@ -1,18 +1,25 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Cloud, Globe, Code, Target, ArrowRight, Sparkles, CheckCircle, Zap, Shield, Rocket, Database, Cpu, GitBranch, Server } from "lucide-react";
+import { Cloud, Globe, Code, Target, ArrowRight, Sparkles, CheckCircle, Zap, Shield, Rocket } from "lucide-react";
 import AnimatedCard from "./AnimatedCard";
 import { SiReact, SiNodedotjs, SiPython, SiAmazon, SiDocker, SiKubernetes } from "react-icons/si";
 
-// Tech stack with icons for orbit display
+// Tech stack with icons for orbit display - memoized to prevent recreating on every render
 const techStack = [
-  { Icon: SiReact, label: "React", color: "from-blue-400 to-cyan-400", x: 100, y: 0 },
-  { Icon: SiNodedotjs, label: "Node.js", color: "from-green-400 to-emerald-400", x: 50, y: 86 },
-  { Icon: SiPython, label: "Python", color: "from-yellow-400 to-orange-400", x: -50, y: 86 },
-  { Icon: SiAmazon, label: "AWS", color: "from-orange-400 to-red-400", x: -100, y: 0 },
-  { Icon: SiDocker, label: "Docker", color: "from-blue-500 to-blue-400", x: -50, y: -86 },
-  { Icon: SiKubernetes, label: "K8s", color: "from-purple-400 to-pink-400", x: 50, y: -86 },
+  { Icon: SiReact, label: "React", color: "from-blue-400 to-cyan-400" },
+  { Icon: SiNodedotjs, label: "Node.js", color: "from-green-400 to-emerald-400" },
+  { Icon: SiPython, label: "Python", color: "from-yellow-400 to-orange-400" },
+  { Icon: SiAmazon, label: "AWS", color: "from-orange-400 to-red-400" },
+  { Icon: SiDocker, label: "Docker", color: "from-blue-500 to-blue-400" },
+  { Icon: SiKubernetes, label: "K8s", color: "from-purple-400 to-pink-400" },
 ];
+
+// Particle positions - pre-generated to avoid re-generating on every render
+const particles = Array.from({ length: 8 }, () => ({
+  left: Math.random() * 100,
+  top: Math.random() * 100,
+  duration: Math.random() * 4 + 4,
+}));
 
 export default function Hero() {
   const containerVariants = {
@@ -126,26 +133,22 @@ export default function Hero() {
         <div className="relative w-full max-w-2xl h-80 sm:h-96 md:h-[32rem] flex items-center justify-center">
           {/* Floating particle background */}
           <div className="absolute inset-0 overflow-hidden rounded-3xl">
-            {[...Array(12)].map((_, i) => (
+            {particles.map((particle, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-sm"
+                className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
                 animate={{
-                  x: [Math.random() * 250 - 125, Math.random() * 250 - 125],
-                  y: [Math.random() * 250 - 125, Math.random() * 250 - 125],
-                  opacity: [0.2, 0.9, 0.2],
-                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0.8, 0.3],
+                  scale: [1, 1.3, 1],
                 }}
                 transition={{
-                  duration: Math.random() * 5 + 4,
+                  duration: particle.duration,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  times: [0, 0.5, 1],
                 }}
                 style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  willChange: "transform, opacity",
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
                 }}
               />
             ))}
@@ -153,17 +156,16 @@ export default function Hero() {
 
           {/* Central glowing orb */}
           <motion.div 
-            className="absolute w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-3xl"
+            className="absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-3xl"
             animate={{
-              scale: [1, 1.25, 1],
-              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.2, 1],
+              opacity: [0.4, 0.7, 0.4],
             }}
             transition={{
-              duration: 5,
+              duration: 4,
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            style={{ willChange: "transform, opacity" }}
           />
 
           {/* Orbiting tech icons */}
@@ -171,7 +173,7 @@ export default function Hero() {
             {techStack.map((tech, idx) => {
               const Icon = tech.Icon;
               const angle = (idx / techStack.length) * 360;
-              const radius = 100;
+              const radius = 85;
               const x = radius * Math.cos((angle * Math.PI) / 180);
               const y = radius * Math.sin((angle * Math.PI) / 180);
 
@@ -183,29 +185,19 @@ export default function Hero() {
                     rotate: 360,
                   }}
                   transition={{
-                    duration: 30,
+                    duration: 25,
                     repeat: Infinity,
                     ease: "linear",
                   }}
                   style={{
                     transformOrigin: `calc(50% + ${-x}px) calc(50% + ${-y}px)`,
-                    willChange: "transform",
                   }}
                 >
                   <motion.div
-                    className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${tech.color} shadow-2xl flex items-center justify-center backdrop-blur-md border border-white/30 hover:scale-125 transition-transform duration-300 cursor-pointer group`}
-                    whileHover={{ scale: 1.2, boxShadow: "0 0 30px rgba(79, 172, 254, 0.8)" }}
-                    whileTap={{ scale: 0.9 }}
-                    style={{ willChange: "transform" }}
+                    className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${tech.color} shadow-lg flex items-center justify-center backdrop-blur-sm border border-white/20`}
+                    whileHover={{ scale: 1.15 }}
                   >
-                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
-                    <motion.div 
-                      className="absolute -bottom-10 text-xs sm:text-sm font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-black/60 px-2 py-1 rounded-full backdrop-blur-sm"
-                      initial={{ opacity: 0, y: 5 }}
-                      whileHover={{ opacity: 1, y: 0 }}
-                    >
-                      {tech.label}
-                    </motion.div>
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                   </motion.div>
                 </motion.div>
               );
@@ -213,15 +205,10 @@ export default function Hero() {
           </div>
 
           {/* Center text label */}
-          <motion.div 
-            className="absolute text-center z-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-          >
-            <div className="text-xl sm:text-2xl font-bold text-darkBlue dark:text-white font-play">Our Tech Stack</div>
-            <div className="text-xs sm:text-sm text-textGray dark:text-gray-400 mt-2">Enterprise-grade technologies</div>
-          </motion.div>
+          <div className="absolute text-center z-10">
+            <div className="text-lg sm:text-xl font-bold text-darkBlue dark:text-white font-play">Our Tech Stack</div>
+            <div className="text-xs text-textGray dark:text-gray-400 mt-1">Enterprise-grade</div>
+          </div>
         </div>
 
         {/* Below the showcase - description and badges */}
