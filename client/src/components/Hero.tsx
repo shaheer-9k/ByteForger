@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Cloud, Globe, Code, Target, ArrowRight, Sparkles, CheckCircle } from "lucide-react";
+import { Cloud, Globe, Code, Target, ArrowRight, Sparkles, CheckCircle, Zap, Shield, Rocket } from "lucide-react";
 import AnimatedCard from "./AnimatedCard";
 
 export default function Hero() {
@@ -146,47 +146,50 @@ export default function Hero() {
           />
         </div>
 
-        {/* Statistics Section */}
+        {/* Core Competencies Section */}
         <motion.div 
-          className="w-full max-w-2xl grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 px-2 xs:px-3 sm:px-6 relative z-10"
+          className="w-full max-w-2xl grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 px-2 xs:px-3 sm:px-6 relative z-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 dark:border-gray-700/50 text-center hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-blue-200/50 dark:border-blue-700/50 text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
             <motion.div 
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-darkBlue dark:text-neonPink mb-1 sm:mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6 }}
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3"
             >
-              50+
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
             </motion.div>
-            <div className="text-xs sm:text-sm font-semibold text-textGray dark:text-gray-400">Projects Delivered</div>
+            <div className="text-xs sm:text-sm font-bold text-blue-700 dark:text-blue-300">Lightning Fast</div>
+            <div className="text-xs text-blue-600 dark:text-blue-400 mt-1">Performance</div>
           </div>
           
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 dark:border-gray-700/50 text-center hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-900/40 dark:to-emerald-800/40 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-green-200/50 dark:border-green-700/50 text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
             <motion.div 
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-darkBlue dark:text-neonPink mb-1 sm:mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.7 }}
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3"
             >
-              30+
+              <Shield className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
             </motion.div>
-            <div className="text-xs sm:text-sm font-semibold text-textGray dark:text-gray-400">Happy Clients</div>
+            <div className="text-xs sm:text-sm font-bold text-green-700 dark:text-green-300">Secure & Reliable</div>
+            <div className="text-xs text-green-600 dark:text-green-400 mt-1">Enterprise Grade</div>
           </div>
           
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 dark:border-gray-700/50 text-center hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:shadow-lg">
+          <div className="bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-900/40 dark:to-pink-800/40 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-purple-200/50 dark:border-purple-700/50 text-center hover:shadow-lg transition-all duration-300 hover:scale-105">
             <motion.div 
-              className="text-2xl sm:text-3xl md:text-4xl font-bold text-darkBlue dark:text-neonPink mb-1 sm:mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 }}
+              className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-2 sm:mb-3"
             >
-              100%
+              <Rocket className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
             </motion.div>
-            <div className="text-xs sm:text-sm font-semibold text-textGray dark:text-gray-400">Satisfaction</div>
+            <div className="text-xs sm:text-sm font-bold text-purple-700 dark:text-purple-300">Scalable Solutions</div>
+            <div className="text-xs text-purple-600 dark:text-purple-400 mt-1">Future Ready</div>
           </div>
         </motion.div>
 
