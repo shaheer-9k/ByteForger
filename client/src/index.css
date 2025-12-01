@@ -412,3 +412,41 @@
     inset: -1px;
   }
 }
+
+/* Carousel mobile optimization */
+.carousel-container {
+  width: 100%;
+  padding: 0 8px;
+}
+
+@media (max-width: 640px) {
+  .carousel-container {
+    padding: 0 4px;
+  }
+  
+  .react-multi-carousel-item {
+    min-height: 320px !important;
+  }
+  
+  .react-multi-carousel-dot-list {
+    margin: 16px 0 !important;
+  }
+  
+  .react-multi-carousel-dot {
+    margin: 0 6px !important;
+  }
+  
+  .react-multi-carousel-dot button {
+    border-radius: 50% !important;
+  }
+}
+
+/* Ensure arrows are visible on mobile */
+.react-multi-carousel-item--active {
+  opacity: 1;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.react-multi-carousel-item {
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
