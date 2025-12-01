@@ -124,42 +124,44 @@ export default function Hero() {
       >
         {/* Animated Tech Showcase Container */}
         <div className="relative w-full max-w-2xl h-80 sm:h-96 md:h-[32rem] flex items-center justify-center">
-          {/* Floating particle background - optimized for performance */}
-          <div className="absolute inset-0 overflow-hidden rounded-3xl" style={{ willChange: "transform" }}>
-            {[...Array(6)].map((_, i) => (
+          {/* Floating particle background */}
+          <div className="absolute inset-0 overflow-hidden rounded-3xl">
+            {[...Array(12)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+                className="absolute w-1.5 h-1.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-sm"
                 animate={{
-                  x: [Math.random() * 150 - 75, Math.random() * 150 - 75],
-                  y: [Math.random() * 150 - 75, Math.random() * 150 - 75],
-                  opacity: [0.3, 0.7, 0.3],
+                  x: [Math.random() * 250 - 125, Math.random() * 250 - 125],
+                  y: [Math.random() * 250 - 125, Math.random() * 250 - 125],
+                  opacity: [0.2, 0.9, 0.2],
+                  scale: [1, 1.5, 1],
                 }}
                 transition={{
-                  duration: Math.random() * 4 + 3,
+                  duration: Math.random() * 5 + 4,
                   repeat: Infinity,
                   ease: "easeInOut",
+                  times: [0, 0.5, 1],
                 }}
                 style={{
                   left: `${Math.random() * 100}%`,
                   top: `${Math.random() * 100}%`,
+                  willChange: "transform, opacity",
                 }}
               />
             ))}
           </div>
 
-          {/* Central glowing orb - optimized */}
+          {/* Central glowing orb */}
           <motion.div 
-            className="absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-2xl"
+            className="absolute w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-3xl"
             animate={{
-              scale: [1, 1.15, 1],
-              opacity: [0.5, 0.8, 0.5],
+              scale: [1, 1.25, 1],
+              opacity: [0.3, 0.8, 0.3],
             }}
             transition={{
-              duration: 3,
+              duration: 5,
               repeat: Infinity,
               ease: "easeInOut",
-              repeatType: "reverse",
             }}
             style={{ willChange: "transform, opacity" }}
           />
@@ -169,7 +171,7 @@ export default function Hero() {
             {techStack.map((tech, idx) => {
               const Icon = tech.Icon;
               const angle = (idx / techStack.length) * 360;
-              const radius = 80;
+              const radius = 100;
               const x = radius * Math.cos((angle * Math.PI) / 180);
               const y = radius * Math.sin((angle * Math.PI) / 180);
 
@@ -181,7 +183,7 @@ export default function Hero() {
                     rotate: 360,
                   }}
                   transition={{
-                    duration: 25 + idx * 2,
+                    duration: 30,
                     repeat: Infinity,
                     ease: "linear",
                   }}
@@ -191,11 +193,19 @@ export default function Hero() {
                   }}
                 >
                   <motion.div
-                    className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${tech.color} shadow-lg flex items-center justify-center backdrop-blur-sm border border-white/20 hover:scale-110 transition-transform duration-300 cursor-pointer group`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                    className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${tech.color} shadow-2xl flex items-center justify-center backdrop-blur-md border border-white/30 hover:scale-125 transition-transform duration-300 cursor-pointer group`}
+                    whileHover={{ scale: 1.2, boxShadow: "0 0 30px rgba(79, 172, 254, 0.8)" }}
+                    whileTap={{ scale: 0.9 }}
+                    style={{ willChange: "transform" }}
                   >
-                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white drop-shadow-lg" />
+                    <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
+                    <motion.div 
+                      className="absolute -bottom-10 text-xs sm:text-sm font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-black/60 px-2 py-1 rounded-full backdrop-blur-sm"
+                      initial={{ opacity: 0, y: 5 }}
+                      whileHover={{ opacity: 1, y: 0 }}
+                    >
+                      {tech.label}
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               );
