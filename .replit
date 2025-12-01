@@ -18,6 +18,10 @@ externalPort = 80
 localPort = 40179
 externalPort = 3000
 
+[[ports]]
+localPort = 40335
+externalPort = 3001
+
 [env]
 PORT = "5000"
 
@@ -44,3 +48,8 @@ waitForPort = 5000
 
 [agent]
 integrations = ["google-sheet:1.0.0", "resend:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+GOOGLE_SHEETS_SPREADSHEET_ID = "1ZoahRsNDDdDNqYTFjF7gwU6EuLJZXEAZ3e2YN-IUu8I"

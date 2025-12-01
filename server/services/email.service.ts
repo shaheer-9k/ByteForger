@@ -1,44 +1,20 @@
 import { Resend } from "resend";
 import type { ContactFormData } from "@shared/schema";
 
-let connectionSettings: any;
-
-async function getCredentials() {
-  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
-  const xReplitToken = process.env.REPL_IDENTITY
-    ? "repl " + process.env.REPL_IDENTITY
-    : process.env.WEB_REPL_RENEWAL
-    ? "depl " + process.env.WEB_REPL_RENEWAL
-    : null;
-
-  if (!xReplitToken) {
-    throw new Error("X_REPLIT_TOKEN not found for repl/depl");
-  }
-
-  connectionSettings = await fetch(
-    "https://" + hostname + "/api/v2/connection?include_secrets=true&connector_names=resend",
-    {
-      headers: {
-        Accept: "application/json",
-        X_REPLIT_TOKEN: xReplitToken,
-      },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => data.items?.[0]);
-
-  if (!connectionSettings || !connectionSettings.settings.api_key) {
-    throw new Error("Resend not connected");
+function getCredentials() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    throw new Error("RESEND_API_KEY not configured");
   }
   return {
-    apiKey: connectionSettings.settings.api_key,
-    fromEmail: connectionSettings.settings.from_email,
+    apiKey,
+    fromEmail: "noreply@byteforger.com",
   };
 }
 
 export async function sendContactNotificationEmail(data: ContactFormData) {
   try {
-    const { apiKey, fromEmail } = await getCredentials();
+    const { apiKey, fromEmail } = getCredentials();
     const resend = new Resend(apiKey);
 
     const emailHtml = `
@@ -69,7 +45,7 @@ export async function sendContactNotificationEmail(data: ContactFormData) {
 
     const response = await resend.emails.send({
       from: fromEmail || "onboarding@resend.dev",
-      to: "info@byteforger.com",
+      to: "muhammadalisultan452@gmail.com",
       replyTo: data.email,
       subject: `New Contact: ${data.subject}`,
       html: emailHtml,
@@ -84,7 +60,7 @@ export async function sendContactNotificationEmail(data: ContactFormData) {
 
 export async function sendConfirmationEmail(email: string, name: string) {
   try {
-    const { apiKey, fromEmail } = await getCredentials();
+    const { apiKey, fromEmail } = getCredentials();
     const resend = new Resend(apiKey);
 
     const emailHtml = `
