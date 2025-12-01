@@ -97,7 +97,7 @@ export default function ContactForm() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                <Label htmlFor="name" className="text-sm font-medium text-gray-800 dark:text-white">
                   Full Name <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -121,7 +121,7 @@ export default function ContactForm() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                <Label htmlFor="email" className="text-sm font-medium text-gray-800 dark:text-white">
                   Email Address <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -146,7 +146,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="subject" className="text-sm font-medium text-gray-800 dark:text-gray-200">
+              <Label htmlFor="subject" className="text-sm font-medium text-gray-800 dark:text-white">
                 Subject <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -170,7 +170,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message" className="text-sm font-medium text-gray-800 dark:text-gray-200">
+              <Label htmlFor="message" className="text-sm font-medium text-gray-800 dark:text-white">
                 Message <span className="text-red-500">*</span>
               </Label>
               <Textarea
