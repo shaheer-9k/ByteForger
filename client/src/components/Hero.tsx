@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Cloud, Globe, Code, Target, ArrowRight, Sparkles } from "lucide-react";
+import { Cloud, Globe, Code, Target, ArrowRight, Sparkles, CheckCircle } from "lucide-react";
 import AnimatedCard from "./AnimatedCard";
 
 export default function Hero() {
@@ -106,7 +106,7 @@ export default function Hero() {
       </motion.div>
       
       <motion.div 
-        className="w-full lg:w-1/2 relative flex justify-center items-center mt-6 sm:mt-0 z-10"
+        className="w-full lg:w-1/2 relative flex flex-col justify-center items-center mt-6 sm:mt-0 z-10 gap-8"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -145,6 +145,71 @@ export default function Hero() {
             delay={0.3}
           />
         </div>
+
+        {/* Statistics Section */}
+        <motion.div 
+          className="w-full max-w-2xl grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 px-2 xs:px-3 sm:px-6 relative z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 dark:border-gray-700/50 text-center hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:shadow-lg">
+            <motion.div 
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-darkBlue dark:text-neonPink mb-1 sm:mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              50+
+            </motion.div>
+            <div className="text-xs sm:text-sm font-semibold text-textGray dark:text-gray-400">Projects Delivered</div>
+          </div>
+          
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 dark:border-gray-700/50 text-center hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:shadow-lg">
+            <motion.div 
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-darkBlue dark:text-neonPink mb-1 sm:mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+            >
+              30+
+            </motion.div>
+            <div className="text-xs sm:text-sm font-semibold text-textGray dark:text-gray-400">Happy Clients</div>
+          </div>
+          
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-3 sm:p-4 md:p-6 border border-white/20 dark:border-gray-700/50 text-center hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all duration-300 hover:shadow-lg">
+            <motion.div 
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-darkBlue dark:text-neonPink mb-1 sm:mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+            >
+              100%
+            </motion.div>
+            <div className="text-xs sm:text-sm font-semibold text-textGray dark:text-gray-400">Satisfaction</div>
+          </div>
+        </motion.div>
+
+        {/* Trust Badges */}
+        <motion.div 
+          className="w-full max-w-2xl flex flex-wrap justify-center gap-2 sm:gap-3 px-2 relative z-10"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-full bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800">
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400" />
+            <span className="text-xs sm:text-sm font-semibold text-green-700 dark:text-green-400">Quality Assured</span>
+          </div>
+          <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
+            <span className="text-xs sm:text-sm font-semibold text-blue-700 dark:text-blue-400">Enterprise Ready</span>
+          </div>
+          <div className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-full bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800">
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 dark:text-purple-400" />
+            <span className="text-xs sm:text-sm font-semibold text-purple-700 dark:text-purple-400">On-Time Delivery</span>
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );
