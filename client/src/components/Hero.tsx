@@ -124,19 +124,19 @@ export default function Hero() {
       >
         {/* Animated Tech Showcase Container */}
         <div className="relative w-full max-w-2xl h-80 sm:h-96 md:h-[32rem] flex items-center justify-center">
-          {/* Floating particle background */}
-          <div className="absolute inset-0 overflow-hidden rounded-3xl">
-            {[...Array(15)].map((_, i) => (
+          {/* Floating particle background - optimized for performance */}
+          <div className="absolute inset-0 overflow-hidden rounded-3xl" style={{ willChange: "transform" }}>
+            {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
                 animate={{
-                  x: [Math.random() * 200 - 100, Math.random() * 200 - 100],
-                  y: [Math.random() * 200 - 100, Math.random() * 200 - 100],
-                  opacity: [0.2, 0.8, 0.2],
+                  x: [Math.random() * 150 - 75, Math.random() * 150 - 75],
+                  y: [Math.random() * 150 - 75, Math.random() * 150 - 75],
+                  opacity: [0.3, 0.7, 0.3],
                 }}
                 transition={{
-                  duration: Math.random() * 3 + 2,
+                  duration: Math.random() * 4 + 3,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -148,18 +148,20 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Central glowing orb */}
+          {/* Central glowing orb - optimized */}
           <motion.div 
             className="absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-2xl"
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.4, 0.7, 0.4],
+              scale: [1, 1.15, 1],
+              opacity: [0.5, 0.8, 0.5],
             }}
             transition={{
-              duration: 4,
+              duration: 3,
               repeat: Infinity,
               ease: "easeInOut",
+              repeatType: "reverse",
             }}
+            style={{ willChange: "transform, opacity" }}
           />
 
           {/* Orbiting tech icons */}
@@ -179,27 +181,21 @@ export default function Hero() {
                     rotate: 360,
                   }}
                   transition={{
-                    duration: 20 + idx,
+                    duration: 25 + idx * 2,
                     repeat: Infinity,
                     ease: "linear",
                   }}
                   style={{
                     transformOrigin: `calc(50% + ${-x}px) calc(50% + ${-y}px)`,
+                    willChange: "transform",
                   }}
                 >
                   <motion.div
                     className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${tech.color} shadow-lg flex items-center justify-center backdrop-blur-sm border border-white/20 hover:scale-110 transition-transform duration-300 cursor-pointer group`}
-                    whileHover={{ scale: 1.15, boxShadow: "0 0 20px rgba(79, 172, 254, 0.6)" }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <Icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white drop-shadow-lg" />
-                    <motion.div 
-                      className="absolute -bottom-8 text-xs font-bold text-white opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
-                      initial={{ opacity: 0, y: 5 }}
-                      whileHover={{ opacity: 1, y: 0 }}
-                    >
-                      {tech.label}
-                    </motion.div>
                   </motion.div>
                 </motion.div>
               );
