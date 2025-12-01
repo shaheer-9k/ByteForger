@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="lg:w-2/5 w-full px-4 md:px-6 lg:px-0">
             <Link href="/">
               <div className="inline-block hover:opacity-80 transition-opacity mb-4 flex-shrink-0 cursor-pointer">
-                <img src={logoUrl} alt="ByteForger Logo" className="h-auto w-32 sm:w-40 md:w-44 object-contain" />
+                <img src={logoUrl} alt="ByteForger Solutions - Enterprise Software Development" title="ByteForger Logo" className="h-auto w-32 sm:w-40 md:w-44 object-contain" loading="lazy" />
               </div>
             </Link>
             <p className="text-textGray dark:text-gray-400 my-4 text-sm md:text-base leading-relaxed">
@@ -45,19 +45,19 @@ export default function Footer() {
             </p>
             <div className="space-y-2 mt-4">
               <div className="flex items-center gap-2">
-                <img src={mailIcon} alt="Email" className="w-4 h-4" />
-                <a href="mailto:info@byteforger.com" className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink text-sm transition-colors">
+                <img src={mailIcon} alt="Email icon" className="w-4 h-4" loading="lazy" />
+                <a href="mailto:info@byteforger.com" title="Send email to ByteForger" className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink text-sm transition-colors">
                   info@byteforger.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <img src={callIcon} alt="Phone" className="w-4 h-4" />
-                <a href="tel:+1234567890" className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink text-sm transition-colors">
+                <img src={callIcon} alt="Phone icon" className="w-4 h-4" loading="lazy" />
+                <a href="tel:+1234567890" title="Call ByteForger" className="text-textGray dark:text-gray-400 hover:text-darkPink dark:hover:text-neonPink text-sm transition-colors">
                   +1 (234) 567-890
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <img src={addressIcon} alt="Address" className="w-4 h-4" />
+                <img src={addressIcon} alt="Address icon" className="w-4 h-4" loading="lazy" />
                 <p className="text-textGray dark:text-gray-400 text-sm">
                   Texas, USA
                 </p>

@@ -73,30 +73,55 @@ function updateOpenGraphTag(property: string, content: string) {
   tag.setAttribute('content', content);
 }
 
-// Page-specific SEO configurations
+// Page-specific SEO configurations with enhanced optimization
 export const pageConfigs = {
   home: {
     title: 'ByteForger | Enterprise Software Solutions & Digital Transformation',
-    description: 'Transform your business with enterprise-grade software solutions. We deliver high-impact technology consulting, full-stack development, and cloud architecture.',
-    keywords: 'software development, cloud solutions, full-stack development, digital transformation, enterprise software, technology consulting',
+    description: 'Transform your business with enterprise-grade software solutions. We deliver high-impact technology consulting, full-stack development, and cloud architecture for startups and enterprises.',
+    keywords: 'software development, cloud solutions, full-stack development, digital transformation, enterprise software, technology consulting, web development, AI integration',
     ogType: 'website',
+    canonical: 'https://byteforger.com/',
   },
   services: {
     title: 'Our Services | ByteForger - Software Development & Cloud Architecture',
-    description: 'Comprehensive digital solutions including full-stack development, cloud infrastructure, AI integration, mobile apps, and software testing. Enterprise-grade quality.',
-    keywords: 'web development, cloud solutions, mobile development, AI integration, software testing, DevOps, data analytics',
+    description: 'Comprehensive digital solutions including full-stack development, cloud infrastructure, AI integration, mobile apps, and software testing. Enterprise-grade quality guaranteed.',
+    keywords: 'web development, cloud solutions, mobile development, AI integration, software testing, DevOps, data analytics, custom software development',
     ogType: 'website',
+    canonical: 'https://byteforger.com/services',
   },
   about: {
     title: 'About ByteForger | Enterprise Software Development Team',
-    description: 'Learn about ByteForger Solutions - a remote-first software engineering firm delivering high-impact technology solutions for startups and enterprises.',
-    keywords: 'about byteforger, software company, technology consulting, software development team',
+    description: 'Learn about ByteForger Solutions - a remote-first software engineering firm delivering high-impact technology solutions for startups and enterprises. Trusted by industry leaders.',
+    keywords: 'about byteforger, software company, technology consulting, software development team, remote software development',
     ogType: 'website',
+    canonical: 'https://byteforger.com/about',
   },
   contact: {
     title: 'Contact ByteForger | Get in Touch for Your Next Project',
-    description: 'Ready to transform your ideas into reality? Contact ByteForger today. We respond within 24 hours. Expert software development and consultation services.',
-    keywords: 'contact byteforger, software development inquiry, project consultation, technology services',
+    description: 'Ready to transform your ideas into reality? Contact ByteForger today. We respond within 24 hours. Expert software development and consultation services for all project sizes.',
+    keywords: 'contact byteforger, software development inquiry, project consultation, technology services, hire developers',
     ogType: 'website',
+    canonical: 'https://byteforger.com/contact',
   },
 };
+
+// Generate comprehensive structured data for pages
+export function generateServiceSchema(services: any[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.desc,
+        "provider": {
+          "@type": "Organization",
+          "name": "ByteForger Solutions"
+        }
+      }
+    }))
+  };
+}

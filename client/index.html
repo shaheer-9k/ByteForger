@@ -14,6 +14,8 @@
     <meta name="canonical" href="https://byteforger.com/" />
     <meta name="author" content="ByteForger Solutions" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -70,14 +72,14 @@
     }
     </script>
     
-    <!-- JSON-LD Schema Markup for Services -->
+    <!-- JSON-LD Schema Markup for LocalBusiness -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "ByteForger Solutions",
       "image": "https://byteforger.com/logo.png",
-      "description": "Professional software development and cloud architecture services",
+      "description": "Professional software development and cloud architecture services for enterprises and startups",
       "url": "https://byteforger.com",
       "telephone": "+1-234-567-890",
       "email": "info@byteforger.com",
@@ -85,7 +87,95 @@
         "@type": "Country",
         "name": "US"
       },
-      "priceRange": "$$"
+      "priceRange": "$$",
+      "foundingDate": "2020",
+      "knowsAbout": ["Full-stack Development", "Cloud Architecture", "Software Testing", "AI Integration", "Digital Transformation"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Software Development Services",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Development"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Solutions"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile Development"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI & Machine Learning"}}
+        ]
+      }
+    }
+    </script>
+    
+    <!-- JSON-LD Schema Markup for FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does ByteForger offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ByteForger offers full-stack development, cloud architecture, mobile development, AI integration, software testing, and digital transformation services for enterprises and startups."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can ByteForger deliver solutions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We guarantee 24-hour response time on all inquiries. Our agile methodology ensures rapid delivery without compromising quality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ByteForger work with startups?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! ByteForger specializes in helping both startups and enterprises. We deliver tailored solutions at competitive pricing for all business sizes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies does ByteForger use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use modern tech stack including React, TypeScript, Node.js, AWS, Azure, GCP, Docker, Kubernetes, and machine learning frameworks."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- JSON-LD BreadcrumbList for Navigation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://byteforger.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://byteforger.com/services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "About",
+          "item": "https://byteforger.com/about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contact",
+          "item": "https://byteforger.com/contact"
+        }
+      ]
     }
     </script>
   </head>
