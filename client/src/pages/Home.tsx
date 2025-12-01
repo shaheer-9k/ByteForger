@@ -149,11 +149,11 @@ export default function Home() {
             ssr={true}
             infinite={true}
             keyBoardControl={true}
-            customTransition="transform 500ms cubic-bezier(0.4, 0, 0.2, 1)"
-            transitionDuration={500}
+            customTransition="transform 400ms cubic-bezier(0.4, 0, 0.2, 1)"
+            transitionDuration={400}
             containerClass="carousel-container"
             autoPlay={true}
-            autoPlaySpeed={3000}
+            autoPlaySpeed={1000}
             removeArrowOnDeviceType={["xs"]}
             arrows={true}
             partialVisible={false}
