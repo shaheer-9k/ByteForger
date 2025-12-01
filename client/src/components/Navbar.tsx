@@ -179,7 +179,7 @@ export default function Navbar() {
         <div
           className={`${
             nav ? "translate-x-0" : "translate-x-full"
-          } fixed top-16 sm:top-20 left-0 right-0 bottom-0 bg-white dark:bg-gray-900 z-40 flex flex-col items-stretch justify-start pt-2 sm:pt-4 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto`}
+          } fixed top-14 sm:top-20 left-0 right-0 bottom-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-stretch justify-start pt-2 sm:pt-4 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto`}
         >
           {navLinks.map((item) => (
             item.section.startsWith("#") ? (
