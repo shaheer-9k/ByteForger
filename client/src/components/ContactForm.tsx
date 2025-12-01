@@ -104,7 +104,7 @@ export default function ContactForm() {
                   id="name"
                   type="text"
                   {...register("name")}
-                  className={`${
+                  className={`dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:placeholder:text-gray-400 ${
                     errors.name 
                       ? 'border-red-300 bg-red-50 focus-visible:ring-red-500' 
                       : ''
@@ -128,7 +128,7 @@ export default function ContactForm() {
                   id="email"
                   type="email"
                   {...register("email")}
-                  className={`${
+                  className={`dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:placeholder:text-gray-400 ${
                     errors.email 
                       ? 'border-red-300 bg-red-50 focus-visible:ring-red-500' 
                       : ''
@@ -153,7 +153,7 @@ export default function ContactForm() {
                 id="subject"
                 type="text"
                 {...register("subject")}
-                className={`${
+                className={`dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:placeholder:text-gray-400 ${
                   errors.subject 
                     ? 'border-red-300 bg-red-50 focus-visible:ring-red-500' 
                     : ''
@@ -177,7 +177,7 @@ export default function ContactForm() {
                 id="message"
                 rows={4}
                 {...register("message")}
-                className={`resize-none ${
+                className={`resize-none dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:placeholder:text-gray-400 ${
                   errors.message 
                     ? 'border-red-300 bg-red-50 focus-visible:ring-red-500' 
                     : ''
