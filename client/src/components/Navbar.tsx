@@ -176,11 +176,10 @@ export default function Navbar() {
           {nav ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        <div
-          className={`${
-            nav ? "translate-x-0" : "translate-x-full"
-          } fixed top-14 sm:top-20 left-0 right-0 bottom-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-stretch justify-start pt-2 sm:pt-4 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto`}
-        >
+        {nav && (
+          <div
+            className="fixed top-14 sm:top-20 left-0 right-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-stretch justify-start pt-2 sm:pt-4 max-h-[calc(100vh-56px)] sm:max-h-[calc(100vh-80px)] md:hidden overflow-y-auto shadow-lg dark:shadow-xl"
+          >
           {navLinks.map((item) => (
             item.section.startsWith("#") ? (
               <button
@@ -227,7 +226,8 @@ export default function Navbar() {
           <div className="w-full flex justify-center py-4 sm:py-6 border-t border-gray-100 dark:border-gray-700">
             <ThemeToggle />
           </div>
-        </div>
+          </div>
+        )}
       </div>
     </nav>
   );
