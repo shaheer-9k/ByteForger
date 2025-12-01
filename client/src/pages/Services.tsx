@@ -1,10 +1,15 @@
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { services } from "../lib/constants";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
+import { updatePageSEO, pageConfigs } from "../lib/seo";
 
 export default function Services() {
+  useEffect(() => {
+    updatePageSEO(pageConfigs.services);
+  }, []);
   return (
     <div className="pt-20">
       <Navbar />

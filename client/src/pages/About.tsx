@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CheckCircle, Target, Users, Zap } from "lucide-react";
 import teamImg from "@assets/aboutUs_1764185200768.jpg";
 import { services } from "../lib/constants";
+import { updatePageSEO, pageConfigs } from "../lib/seo";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -43,6 +45,10 @@ const bullets = [
 ];
 
 export default function About() {
+  useEffect(() => {
+    updatePageSEO(pageConfigs.about);
+  }, []);
+
   return (
     <div className="pt-20">
       <Navbar />

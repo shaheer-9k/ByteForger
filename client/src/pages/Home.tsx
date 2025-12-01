@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Portfolio from "../components/Portfolio";
 import { services, approaches, techStack } from "../lib/constants";
+import { updatePageSEO, pageConfigs } from "../lib/seo";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -67,6 +68,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
+    updatePageSEO(pageConfigs.home);
     const hash = window.location.hash;
     if (hash) {
       const targetSection = document.querySelector(hash);

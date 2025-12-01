@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import { Mail, Clock, Zap, Shield, Target } from "lucide-react";
+import { updatePageSEO, pageConfigs } from "../lib/seo";
 
 export default function Contact() {
+  useEffect(() => {
+    updatePageSEO(pageConfigs.contact);
+  }, []);
   return (
     <div className="pt-16 min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <Navbar />
