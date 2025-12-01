@@ -69,25 +69,6 @@ export default function Hero() {
           cutting-edge technology solutions that drive business growth.
         </motion.p>
         
-        <motion.div 
-          variants={itemVariants}
-          className="flex flex-col xs:flex-row flex-wrap gap-2 xs:gap-3 text-xs xs:text-sm text-muted-foreground mb-4 sm:mb-6 md:mb-8"
-        >
-          <span className="flex items-center" data-testid="text-feature-react">
-            <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 bg-gradient-to-r from-darkPink to-neonPink rounded-full mr-1.5 xs:mr-2 flex-shrink-0"></span>
-            <span className="hidden xs:inline">React & TypeScript Development</span>
-            <span className="xs:hidden">React & TypeScript</span>
-          </span>
-          <span className="flex items-center" data-testid="text-feature-cloud">
-            <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 bg-gradient-to-r from-darkPink to-neonPink rounded-full mr-1.5 xs:mr-2 flex-shrink-0"></span>
-            <span className="hidden sm:inline">Cloud Architecture (AWS, Azure, GCP)</span>
-            <span className="sm:hidden">Cloud Solutions</span>
-          </span>
-          <span className="hidden sm:flex items-center" data-testid="text-feature-ai">
-            <span className="w-2 h-2 bg-gradient-to-r from-darkPink to-neonPink rounded-full mr-2 flex-shrink-0"></span>
-            AI & Machine Learning Integration
-          </span>
-        </motion.div>
         
         <motion.div 
           variants={itemVariants}
