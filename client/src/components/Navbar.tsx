@@ -138,31 +138,30 @@ export default function Navbar() {
                 {item.text}
               </button>
             ) : (
-              <Link key={item.id} href={item.section}>
-                <div
-                  data-testid={`link-${item.text.toLowerCase()}`}
-                  className={`px-2 lg:px-3 py-2 font-play transition-colors duration-300 text-foreground dark:text-gray-200 cursor-pointer whitespace-nowrap ${
-                    isLinkActive(item.section) 
-                      ? "text-lightBlue border-b-2 border-lightBlue dark:text-lightBlue dark:border-lightBlue" 
-                      : "hover:text-lightBlue dark:hover:text-lightBlue"
-                  }`}
-                >
-                  {item.text}
-                </div>
+              <Link 
+                key={item.id} 
+                href={item.section}
+                data-testid={`link-${item.text.toLowerCase()}`}
+                className={`px-2 lg:px-3 py-2 font-play transition-colors duration-300 text-foreground dark:text-gray-200 cursor-pointer whitespace-nowrap ${
+                  isLinkActive(item.section) 
+                    ? "text-lightBlue border-b-2 border-lightBlue dark:text-lightBlue dark:border-lightBlue" 
+                    : "hover:text-lightBlue dark:hover:text-lightBlue"
+                }`}
+              >
+                {item.text}
               </Link>
             )
           ))}
-          <Link href="/contact">
-            <div
-              data-testid="link-contact"
-              className={`hidden lg:flex rounded-full py-2 px-5 lg:px-6 ml-2 font-play font-bold text-xs lg:text-sm transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 whitespace-nowrap items-center gap-1 bg-gradient-to-r cursor-pointer ${
-                location === "/contact" 
-                  ? "from-lightBlue to-neonBlue text-white shadow-md" 
-                  : "from-darkBlue to-lightBlue text-white shadow-md hover:shadow-xl dark:from-neonPink dark:to-lightBlue"
-              }`}
-            >
-              <span>Contact</span>
-            </div>
+          <Link 
+            href="/contact"
+            data-testid="link-contact"
+            className={`hidden lg:flex rounded-full py-2 px-5 lg:px-6 ml-2 font-play font-bold text-xs lg:text-sm transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 whitespace-nowrap items-center gap-1 bg-gradient-to-r cursor-pointer ${
+              location === "/contact" 
+                ? "from-lightBlue to-neonBlue text-white shadow-md" 
+                : "from-darkBlue to-lightBlue text-white shadow-md hover:shadow-xl dark:from-neonPink dark:to-lightBlue"
+            }`}
+          >
+            Contact Us
           </Link>
           <ThemeToggle />
         </nav>
@@ -195,33 +194,32 @@ export default function Navbar() {
                 {item.text}
               </button>
             ) : (
-              <Link key={item.id} href={item.section}>
-                <div
-                  data-testid={`link-mobile-${item.text.toLowerCase()}`}
-                  className={`w-full py-3 sm:py-4 px-4 sm:px-6 text-left text-sm sm:text-base font-play transition-colors duration-300 border-b border-gray-100 dark:border-gray-700 block text-foreground dark:text-gray-200 cursor-pointer ${
-                    isLinkActive(item.section) 
-                      ? "text-lightBlue bg-blue-50/50 dark:bg-gray-800 dark:text-lightBlue" 
-                      : "hover:text-lightBlue hover:bg-gray-50/50 dark:hover:bg-gray-800 dark:hover:text-lightBlue"
-                  }`}
-                  onClick={() => setNav(false)}
-                >
-                  {item.text}
-                </div>
+              <Link 
+                key={item.id} 
+                href={item.section}
+                data-testid={`link-mobile-${item.text.toLowerCase()}`}
+                className={`w-full py-3 sm:py-4 px-4 sm:px-6 text-left text-sm sm:text-base font-play transition-colors duration-300 border-b border-gray-100 dark:border-gray-700 block text-foreground dark:text-gray-200 cursor-pointer ${
+                  isLinkActive(item.section) 
+                    ? "text-lightBlue bg-blue-50/50 dark:bg-gray-800 dark:text-lightBlue" 
+                    : "hover:text-lightBlue hover:bg-gray-50/50 dark:hover:bg-gray-800 dark:hover:text-lightBlue"
+                }`}
+                onClick={() => setNav(false)}
+              >
+                {item.text}
               </Link>
             )
           ))}
-          <Link href="/contact">
-            <div
-              data-testid="link-mobile-contact"
-              onClick={() => setNav(false)}
-              className={`mx-4 sm:mx-6 text-center text-sm sm:text-base font-play font-bold rounded-full py-3 px-6 my-3 sm:my-4 transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 bg-gradient-to-r cursor-pointer ${
-                location === "/contact" 
-                  ? "from-lightBlue to-neonBlue text-white shadow-md" 
-                  : "from-darkBlue to-lightBlue text-white shadow-md dark:from-neonPink dark:to-lightBlue"
-              }`}
-            >
-              Get in Touch
-            </div>
+          <Link 
+            href="/contact"
+            data-testid="link-mobile-contact"
+            onClick={() => setNav(false)}
+            className={`mx-4 sm:mx-6 text-center text-sm sm:text-base font-play font-bold rounded-full py-3 px-6 my-3 sm:my-4 transition duration-300 ease-in-out transform hover:shadow-lg hover:scale-105 bg-gradient-to-r cursor-pointer ${
+              location === "/contact" 
+                ? "from-lightBlue to-neonBlue text-white shadow-md" 
+                : "from-darkBlue to-lightBlue text-white shadow-md dark:from-neonPink dark:to-lightBlue"
+            }`}
+          >
+            Contact Us
           </Link>
           <div className="w-full flex justify-center py-4 sm:py-6 border-t border-gray-100 dark:border-gray-700">
             <ThemeToggle />
