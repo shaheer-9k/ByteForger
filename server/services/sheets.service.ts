@@ -1,70 +1,62 @@
 import { google } from "googleapis";
 import type { ContactFormData } from "@shared/schema";
+import * as fs from "fs";
+import * as path from "path";
 
-let connectionSettings: any;
+function getCredentials() {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
 
-async function getAccessToken() {
-  if (
-    connectionSettings &&
-    connectionSettings.settings.expires_at &&
-    new Date(connectionSettings.settings.expires_at).getTime() > Date.now()
-  ) {
-    return connectionSettings.settings.access_token;
+  if (!spreadsheetId) {
+    throw new Error("Google Sheets spreadsheet ID not configured. Please set GOOGLE_SHEETS_SPREADSHEET_ID in your .env file");
   }
 
-  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
-  const xReplitToken = process.env.REPL_IDENTITY
-    ? "repl " + process.env.REPL_IDENTITY
-    : process.env.WEB_REPL_RENEWAL
-    ? "depl " + process.env.WEB_REPL_RENEWAL
-    : null;
+  // Try to load credentials from JSON file first
+  const keyFilePath = path.join(process.cwd(), '..', 'byteforger-772daa3532b3.json');
+  let keyFile;
 
-  if (!xReplitToken) {
-    throw new Error("X_REPLIT_TOKEN not found for repl/depl");
-  }
+  try {
+    keyFile = JSON.parse(fs.readFileSync(keyFilePath, 'utf8'));
+  } catch (error) {
+    // Fallback to environment variables
+    const clientEmail = process.env.GOOGLE_CLIENT_EMAIL;
+    const privateKey = process.env.GOOGLE_PRIVATE_KEY;
 
-  connectionSettings = await fetch(
-    "https://" + hostname + "/api/v2/connection?include_secrets=true&connector_names=google-sheet",
-    {
-      headers: {
-        Accept: "application/json",
-        X_REPLIT_TOKEN: xReplitToken,
-      },
+    if (!clientEmail || !privateKey) {
+      throw new Error("Google Sheets credentials not found. Either place the service account JSON file in the project root or set GOOGLE_CLIENT_EMAIL and GOOGLE_PRIVATE_KEY in your .env file");
     }
-  )
-    .then((res) => res.json())
-    .then((data) => data.items?.[0]);
 
-  const accessToken =
-    connectionSettings?.settings?.access_token ||
-    connectionSettings.settings?.oauth?.credentials?.access_token;
-
-  if (!connectionSettings || !accessToken) {
-    throw new Error("Google Sheet not connected");
+    keyFile = {
+      client_email: clientEmail,
+      private_key: privateKey.replace(/\\n/g, '\n'),
+    };
   }
-  return accessToken;
+
+  return {
+    credentials: keyFile,
+    spreadsheetId,
+  };
 }
 
 export async function getGoogleSheetsClient() {
-  const accessToken = await getAccessToken();
+  const { credentials } = getCredentials();
 
-  const oauth2Client = new google.auth.OAuth2();
-  oauth2Client.setCredentials({
-    access_token: accessToken,
+  const auth = new google.auth.GoogleAuth({
+    credentials,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  return google.sheets({ version: "v4", auth: oauth2Client });
+  return google.sheets({ version: "v4", auth });
 }
 
-export async function saveContactFormToSheets(
-  spreadsheetId: string,
-  data: ContactFormData
-) {
+export async function saveContactFormToSheets(data: ContactFormData) {
   try {
+    const { spreadsheetId } = getCredentials();
     const sheets = await getGoogleSheetsClient();
 
-    const timestamp = new Date().toISOString();
-    const values = [[timestamp, data.name, data.email, data.subject, data.message]];
+    const now = new Date();
+    const submissionDate = now.toLocaleDateString();
+    const submissionTime = now.toLocaleTimeString();
+    const values = [[submissionDate, submissionTime, data.name, data.email, data.subject, data.message]];
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId,

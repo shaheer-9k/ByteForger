@@ -25,10 +25,7 @@ export async function registerRoutes(
       const validatedData: ContactFormData = validationResult.data;
 
       try {
-        const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID || "";
-        if (spreadsheetId) {
-          await saveContactFormToSheets(spreadsheetId, validatedData);
-        }
+        await saveContactFormToSheets(validatedData);
       } catch (sheetsError) {
         console.error("Error saving to Google Sheets:", sheetsError);
       }

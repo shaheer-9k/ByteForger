@@ -52,7 +52,7 @@ export default function About() {
   return (
     <div className="pt-20">
       <Navbar />
-      <div className="mt-24">
+      <main className="mt-24">
         <div className="flex flex-col lg:flex-row justify-between items-center px-8 gap-8">
           <div className="lg:w-3/4">
             <h1 className="text-5xl text-darkBlue font-play font-bold my-6">
@@ -67,9 +67,9 @@ export default function About() {
         </div>
 
         <div className="px-10 mt-32 mb-10">
-          <p className="text-center text-foreground text-3xl font-semibold font-play">
+          <h2 className="text-center text-foreground text-3xl font-semibold font-play">
             About Us
-          </p>
+          </h2>
 
           <div className="flex flex-col items-center lg:w-3/4 mx-auto mt-4 p-4">
             <p className="text-center text-muted-foreground leading-relaxed">
@@ -114,9 +114,9 @@ export default function About() {
                     <Icon className="w-full h-full" />
                   </div>
                   <div className="ml-4">
-                    <p className="sm:text-sm lg:text-md font-semibold font-play text-start my-1 text-darkBlue">
+                    <h3 className="sm:text-sm lg:text-md font-semibold font-play text-start my-1 text-darkBlue">
                       {service.title}
-                    </p>
+                    </h3>
                     <p className="text-balance mb-2 text-sm text-textGray text-start">
                       {service.desc}
                     </p>
@@ -129,9 +129,9 @@ export default function About() {
 
         <div className="p-10 mt-20 mb-10 bg-darkBlue flex flex-col lg:flex-row gap-8">
           <div className="flex-1 text-start justify-center flex flex-col">
-            <p className="text-cream text-3xl font-semibold font-play flex flex-row items-center gap-2">
+            <h2 className="text-cream text-3xl font-semibold font-play flex flex-row items-center gap-2">
               Our <span className="text-neonPink">Vision</span>
-            </p>
+            </h2>
             <p className="text-cream mt-4 leading-relaxed">
               We envision ByteForger Solutions as a beacon of trust and quality
               in the software industry. Our mission is to continuously innovate,
@@ -144,7 +144,7 @@ export default function About() {
             {bullets.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div 
+                <div
                   key={index}
                   className="flex flex-row items-start text-left my-8 lg:ml-16"
                   data-testid={`card-vision-${index}`}
@@ -153,9 +153,9 @@ export default function About() {
                     <CheckCircle className="w-8 h-8 text-neonPink" />
                   </div>
                   <div className="ml-4">
-                    <p className="text-cream font-bold font-play text-xl mb-2">
+                    <h3 className="text-cream font-bold font-play text-xl mb-2">
                       {item.title}
-                    </p>
+                    </h3>
                     <p className="text-cream/80 text-sm">
                       {item.desc}
                     </p>
@@ -185,7 +185,7 @@ export default function About() {
             </p>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   );

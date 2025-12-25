@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, ArrowRight } from "lucide-react";
+import { Sparkles, TrendingUp, ArrowRight } from "lucide-react";
 import drivewaveImg from "@assets/Drivewave_Design_1764185200769.jpg";
 import qpayImg from "@assets/QPay_Design_1764185200770.png";
 import cleaningBeeImg from "@assets/The Cleaning Bee-Profile_Image_1764185200770.jpg";
+import homeNestImg from "@assets/homeNestImg.png";
+import tasteCraftImg from "@assets/tasteCraftImg.png";
+import matchMatesImg from "@assets/matchMatesImg.png";
 
 const projects = [
   {
@@ -36,14 +39,56 @@ const projects = [
     stats: "5K+ Professionals",
     color: "from-yellow-500 to-orange-600",
   },
+  {
+    id: 4,
+    title: "HomeNest",
+    category: "Mobile App",
+    description: "A modern real-estate browsing application that helps users find, compare, and explore properties through high-quality visuals, virtual tours, and smart location-based recommendations.",
+    image: homeNestImg,
+    technologies: ["React Native", "Firebase", "Map API"],
+    stats: "120K+ Active Users",
+    color: "from-blue-500 to-cyan-500",
+  },
+  {
+    id: 5,
+    title: "TasteCraft",
+    category: "Website",
+    description: "A beautifully crafted recipe and cooking inspiration platform offering step-by-step recipes, nutrition insights, chef profiles, and curated meal categories for food enthusiasts worldwide.",
+    image: tasteCraftImg,
+    technologies: ["Next.js", "TailwindCSS", "Headless CMS"],
+    stats: "500K+ Monthly Visitors",
+    color: "from-blue-600 to-indigo-600",
+  },
+  {
+    id: 5,
+    title: "TasteCraft",
+    category: "Website",
+    description: "A beautifully crafted recipe and cooking inspiration platform offering step-by-step recipes, nutrition insights, chef profiles, and curated meal categories for food enthusiasts worldwide.",
+    image: tasteCraftImg,
+    technologies: ["Next.js", "TailwindCSS", "Headless CMS"],
+    stats: "500K+ Monthly Visitors",
+    color: "from-amber-600 to-orange-600",
+  },
+  {
+    id: 6,
+    title: "MatchMates",
+    category: "Mobile App",
+    description: "A smart matchmaking platform designed to help users discover compatible partners using location filters, profile insights, and an intuitive swipe-based interface.",
+    image: matchMatesImg,
+    technologies: ["Flutter", "Node.js", "Real-time Chat API"],
+    stats: "80K+ Successful Matches",
+    color: "from-blue-500 to-teal-500",
+  },
 ];
 
 function PortfolioComponent() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const categories = ["Mobile App", "FinTech App", "Service Platform"];
+
   const filteredProjects = selectedCategory
     ? projects.filter((p) => p.category === selectedCategory)
     : projects;
+
+  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -61,64 +106,27 @@ function PortfolioComponent() {
   return (
     <section id="portfolio" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 will-change-contents">
       <div className="max-w-7xl mx-auto px-3 sm:px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold font-play text-darkBlue mb-3 sm:mb-4">
-            Our <span className="bg-gradient-to-r from-darkPink to-neonPink bg-clip-text text-transparent">Portfolio</span>
+            Our <span className="text-lightBlue">Portfolio</span>
           </h2>
           <p className="text-xs xs:text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0">
             Transforming ideas into stunning digital experiences across industries
           </p>
         </motion.div>
 
-        <motion.div 
-          className="flex flex-wrap justify-center gap-2 xs:gap-3 mb-12 sm:mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <motion.button
-            onClick={() => setSelectedCategory(null)}
-            data-testid="button-filter-all"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`px-4 xs:px-6 sm:px-8 py-2 xs:py-3 rounded-full font-semibold text-xs xs:text-sm sm:text-base transition-all duration-300 backdrop-blur-sm ${
-              selectedCategory === null
-                ? "bg-gradient-to-r from-darkBlue to-lightBlue text-white shadow-lg"
-                : "bg-white text-darkBlue hover:bg-gray-100 border border-gray-200"
-            }`}
-          >
-            All Projects
-          </motion.button>
-          {categories.map((cat) => (
-            <motion.button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              data-testid={`button-filter-${cat.toLowerCase().replace(/\s+/g, '-')}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`px-4 xs:px-6 sm:px-8 py-2 xs:py-3 rounded-full font-semibold text-xs xs:text-sm sm:text-base transition-all duration-300 backdrop-blur-sm ${
-                selectedCategory === cat
-                  ? "bg-gradient-to-r from-darkBlue to-lightBlue text-white shadow-lg"
-                  : "bg-white text-darkBlue hover:bg-gray-100 border border-gray-200"
-              }`}
-            >
-              {cat}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
         >
-          {filteredProjects.map((project, idx) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
@@ -126,43 +134,54 @@ function PortfolioComponent() {
               className="group bg-white dark:bg-gray-800 rounded-3xl shadow-xl dark:shadow-2xl hover:shadow-2xl dark:hover:shadow-2xl dark:hover:shadow-gray-700 overflow-hidden transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-lightBlue dark:hover:border-neonPink"
               data-testid={`card-project-${project.id}`}
             >
-              <div className="relative h-48 xs:h-60 sm:h-72 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600">
+              <div className="relative h-56 xs:h-64 sm:h-72 overflow-hidden">
                 <motion.img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.15 }}
+                  transition={{ duration: 0.6 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-end justify-end p-6">
-                  <motion.a
-                    href="#"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-lightBlue to-neonPink text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all font-semibold"
-                    data-testid={`link-project-${project.id}`}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+
+                {/* Stats Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <motion.span
+                    className={`inline-flex items-center gap-2 bg-gradient-to-r ${project.color} text-white text-xs font-bold px-4 py-2 rounded-full backdrop-blur-md shadow-lg`}
+                    whileHover={{ scale: 1.05 }}
                   >
-                    View Case Study <ArrowRight className="w-4 h-4" />
-                  </motion.a>
-                </div>
-                <div className="absolute top-4 left-4">
-                  <span className={`inline-block bg-gradient-to-r ${project.color} text-white text-xs font-bold px-4 py-2 rounded-full backdrop-blur-sm`}>
+                    <TrendingUp className="w-3 h-3" />
                     {project.stats}
-                  </span>
+                  </motion.span>
+                </div>
+
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 flex items-end justify-between p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="flex-1"></div>
                 </div>
               </div>
-              <div className="p-4 sm:p-6 md:p-8 bg-gradient-to-b from-white/50 to-white dark:from-gray-800/50 dark:to-gray-800">
-                <span className="text-xs xs:text-sm font-bold text-transparent bg-gradient-to-r from-darkPink to-neonPink bg-clip-text uppercase tracking-wider">
-                  {project.category}
-                </span>
-                <h3 className="text-lg xs:text-xl sm:text-2xl font-bold font-play text-darkBlue dark:text-lightBlue my-2 sm:my-3 group-hover:text-neonPink dark:group-hover:text-neonPink transition-colors">{project.title}</h3>
-                <p className="text-textGray dark:text-gray-400 text-xs xs:text-sm leading-relaxed mb-4 sm:mb-6 group-hover:text-foreground dark:group-hover:text-gray-300 transition-colors">{project.description}</p>
+              <div className="p-6 sm:p-8 relative">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold text-lightBlue uppercase tracking-wider">
+                    {project.category}
+                  </span>
+                  <Sparkles className="w-4 h-4 text-lightBlue opacity-60" />
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-bold font-play text-darkBlue dark:text-lightBlue mb-3 group-hover:text-lightBlue transition-colors duration-300">
+                  {project.title}
+                </h3>
+
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 line-clamp-3">
+                  {project.description}
+                </p>
+
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <motion.span
                       key={tech}
                       whileHover={{ scale: 1.1, y: -2 }}
-                      className="inline-block bg-gradient-to-r from-darkBlue/15 to-lightBlue/15 dark:from-neonPink/20 dark:to-lightBlue/20 text-darkBlue dark:text-lightBlue text-xs px-3 py-2 rounded-full font-semibold border border-darkBlue/30 dark:border-neonPink/40 hover:border-darkBlue/60 dark:hover:border-lightBlue/60 hover:shadow-md transition-all"
+                      className="inline-block bg-blue-50 dark:bg-slate-800 text-darkBlue dark:text-blue-100 text-xs px-3 py-2 rounded-full font-semibold border border-blue-100 dark:border-slate-700 group-hover:border-lightBlue/30 hover:shadow-md transition-all duration-300"
                       data-testid={`badge-tech-${tech.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {tech}

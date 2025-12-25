@@ -48,14 +48,17 @@
   --font-mono: Menlo, monospace;
   
   /* ByteForger Brand Colors */
-  --dark-blue: 220 80% 32%;
-  --light-blue: 210 75% 55%;
-  --dark-pink: 340 85% 48%;
-  --neon-pink: 340 85% 65%;
-  --neon-blue: 200 90% 60%;
-  --cream: 40 20% 95%;
-  --text-gray: 220 10% 45%;
-  --radius: .5rem;
+  /* Professional Corporate Palette */
+  --dark-blue: 222 47% 11%;     /* Deep Navy #0F172A */
+  --light-blue: 217 91% 60%;    /* Professional Blue #3B82F6 */
+  --dark-pink: 210 40% 96%;     /* Very Light Gray/White #F1F5F9 - Used as secondary implementation background */
+  --neon-pink: 215 25% 27%;     /* Slate #334155 - Replacing Neon Pink with Slate */
+  --neon-blue: 199 89% 48%;     /* Cyan #0EA5E9 - Keeping as accent but toned down */
+  --cream: 0 0% 100%;           /* Pure White */
+  --text-gray: 215 16% 47%;     /* Cool Gray #64748B */
+  --gold: 48 96% 53%;           /* Gold Accent #F59E0B */
+  
+  --radius: 0.3rem;             /* Sharper corners for professional look */
   --shadow-2xs: 0px 2px 0px 0px hsl(220 15% 20% / 0.02);
   --shadow-xs: 0px 2px 0px 0px hsl(220 15% 20% / 0.04);
   --shadow-sm: 0px 2px 0px 0px hsl(220 15% 20% / 0.05), 0px 1px 2px -1px hsl(220 15% 20% / 0.08);
@@ -136,14 +139,14 @@
   --chart-3: 200 62% 65%;
   --chart-4: 280 58% 70%;
   --chart-5: 160 52% 62%;
-  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.15);
-  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.20);
-  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.25), 0px 1px 2px -1px hsl(0 0% 0% / 0.30);
-  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.25), 0px 1px 2px -1px hsl(0 0% 0% / 0.35);
-  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.30), 0px 2px 4px -1px hsl(0 0% 0% / 0.40);
-  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.35), 0px 4px 6px -1px hsl(0 0% 0% / 0.45);
-  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.40), 0px 8px 10px -1px hsl(0 0% 0% / 0.50);
-  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.50);
+  --shadow-2xs: 0px 1px 1px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 1px 2px hsl(0 0% 0% / 0.10);
+  --shadow-sm: 0px 1px 2px hsl(0 0% 0% / 0.15), 0px 2px 4px -1px hsl(0 0% 0% / 0.08);
+  --shadow: 0px 4px 6px -1px hsl(0 0% 0% / 0.15), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0px 6px 8px -1px hsl(0 0% 0% / 0.20), 0px 4px 6px -1px hsl(0 0% 0% / 0.12);
+  --shadow-lg: 0px 10px 15px -3px hsl(0 0% 0% / 0.25), 0px 4px 6px -2px hsl(0 0% 0% / 0.15);
+  --shadow-xl: 0px 20px 25px -5px hsl(0 0% 0% / 0.30), 0px 10px 10px -5px hsl(0 0% 0% / 0.15);
+  --shadow-2xl: 0px 25px 50px -12px hsl(0 0% 0% / 0.35);
 
 /* Fallback for older browsers */
   --sidebar-primary-border: hsl(var(--sidebar-primary));
@@ -181,6 +184,8 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 }
 
@@ -205,31 +210,14 @@
  * need to be distinguished from eachother visually.
  */
 /* ===== ADVANCED ANIMATIONS ===== */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(147, 51, 234, 0.6); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-@keyframes blob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(20px, -50px) scale(1.1); }
-  50% { transform: translate(-20px, 20px) scale(0.9); }
-  75% { transform: translate(50px, 50px) scale(1.05); }
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.95; }
 }
 
 @keyframes slide-in-left {
@@ -254,31 +242,12 @@
 }
 
 @layer utilities {
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
   }
   
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite;
-  }
-  
-  .animate-shimmer {
-    animation: shimmer 3s linear infinite;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
-    background-size: 1000px 100%;
-  }
-  
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-  
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
-  
-  .animate-blob-2 {
-    animation: blob 9s infinite reverse;
-    animation-delay: 2s;
+  .animate-gentle-pulse {
+    animation: gentle-pulse 3s infinite ease-in-out;
   }
   
   .animate-slide-in-left {
@@ -287,14 +256,6 @@
   
   .animate-slide-in-right {
     animation: slide-in-right 0.8s ease-out;
-  }
-  
-  .animate-rotate-gradient {
-    animation: rotate-gradient 8s ease infinite;
-  }
-  
-  .animate-bounce-slow {
-    animation: bounce-slow 4s ease-in-out infinite;
   }
 
   /* Hide ugly search cancel button in Chrome until we can style it properly */

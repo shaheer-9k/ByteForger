@@ -76,9 +76,9 @@ function updateOpenGraphTag(property: string, content: string) {
 // Page-specific SEO configurations with enhanced optimization
 export const pageConfigs = {
   home: {
-    title: 'ByteForger | Enterprise Software Solutions & Digital Transformation',
-    description: 'Transform your business with enterprise-grade software solutions. We deliver high-impact technology consulting, full-stack development, and cloud architecture for startups and enterprises.',
-    keywords: 'software development, cloud solutions, full-stack development, digital transformation, enterprise software, technology consulting, web development, AI integration',
+    title: 'ByteForger | Web Development, Mobile Apps & Cloud Computing Solutions',
+    description: 'Transform your business with comprehensive digital solutions. We specialize in web development, mobile app development, cloud computing, Salesforce services, database design, IT consulting, and digital transformation.',
+    keywords: 'web development, mobile app development, cloud computing, Salesforce services, database design, IT consulting, digital transformation, enterprise software, technology consulting',
     ogType: 'website',
     canonical: 'https://byteforger.com/',
   },

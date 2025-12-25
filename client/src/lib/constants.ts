@@ -1,4 +1,4 @@
-import { Code, Globe, Cloud, Smartphone, LineChart, Wrench, Database, Shield, Zap, Users, Target, CheckCircle, Bug, Cpu } from "lucide-react";
+import { Code, Globe, Cloud, Smartphone, LineChart, Wrench, Database, Shield, Zap, Users, Target, CheckCircle, Bug, Cpu, Settings, Briefcase } from "lucide-react";
 
 export const services = [
   {
@@ -9,45 +9,39 @@ export const services = [
   },
   {
     id: 2,
-    title: "Software Development",
-    desc: "End-to-end software development with full-stack expertise. We craft scalable, maintainable applications tailored to your business requirements and goals.",
-    image: Code,
+    title: "Mobile App Development",
+    desc: "Native and cross-platform mobile applications for iOS and Android. Beautiful, performant apps that users love.",
+    image: Smartphone,
   },
   {
     id: 3,
-    title: "Cloud Solutions",
+    title: "Cloud Computing",
     desc: "Design and deploy scalable cloud infrastructure on AWS, Azure, and GCP. Expert cloud architecture, migration, and DevOps services.",
     image: Cloud,
   },
   {
     id: 4,
-    title: "Mobile Development",
-    desc: "Native and cross-platform mobile applications for iOS and Android. Beautiful, performant apps that users love.",
-    image: Smartphone,
+    title: "Salesforce Services",
+    desc: "Comprehensive Salesforce consulting, customization, and integration services. From CRM implementation to advanced automation and analytics.",
+    image: Users,
   },
   {
     id: 5,
-    title: "Software Testing & QA",
-    desc: "Comprehensive quality assurance and testing services. Automated testing, performance testing, security testing, and end-to-end testing to ensure flawless software.",
-    image: Bug,
+    title: "Database Design & Management",
+    desc: "Expert database design, optimization, and management services. PostgreSQL, MongoDB, MySQL, and cloud database solutions.",
+    image: Database,
   },
   {
     id: 6,
-    title: "AI & Machine Learning",
-    desc: "Integrate advanced AI/ML capabilities into your applications. From natural language processing to computer vision and predictive analytics.",
-    image: Zap,
+    title: "IT Consulting & Digital Transformation",
+    desc: "Strategic IT consulting and digital transformation services. Help your business leverage technology for competitive advantage.",
+    image: Cpu,
   },
   {
     id: 7,
-    title: "Data Analytics",
-    desc: "Transform raw data into actionable insights. Business intelligence, data visualization, and analytics dashboard development.",
-    image: LineChart,
-  },
-  {
-    id: 8,
-    title: "Security & DevOps",
-    desc: "Secure infrastructure, automated deployments, and continuous integration. Docker, Kubernetes, CI/CD pipelines, and comprehensive security audits included.",
-    image: Shield,
+    title: "Maintenance & Support Services",
+    desc: "Ongoing maintenance, support, and optimization services. Keep your applications running smoothly with our dedicated support team.",
+    image: Wrench,
   },
 ];
 
@@ -84,43 +78,48 @@ export const approaches = [
 
 export const techStack = {
   Frontend: [
-    { name: "React", url: "https://react.dev/", logo: new URL("../../attached_assets/react logo_1764188540632.png", import.meta.url).href },
-    { name: "Next.js", url: "https://nextjs.org/", logo: new URL("../../attached_assets/next logo_1764188505456.png", import.meta.url).href },
-    { name: "TypeScript", url: "https://www.typescriptlang.org/", logo: new URL("../../attached_assets/typescript logo_1764188540633.png", import.meta.url).href },
-    { name: "Tailwind CSS", url: "https://tailwindcss.com/", logo: new URL("../../attached_assets/tailwind logo_1764188540633.png", import.meta.url).href },
-    { name: "Vue.js", url: "https://vuejs.org/", logo: "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg" },
-    { name: "Angular", url: "https://angular.io/", logo: new URL("../../attached_assets/angular logo_1764188549127.png", import.meta.url).href },
+    { name: "React", url: "https://react.dev/", logo: "https://cdn.simpleicons.org/react/61DAFB" },
+    { name: "Next.js", url: "https://nextjs.org/", logo: "https://cdn.simpleicons.org/nextdotjs/000000" },
+    { name: "TypeScript", url: "https://www.typescriptlang.org/", logo: "https://cdn.simpleicons.org/typescript/3178C6" },
+    { name: "Tailwind CSS", url: "https://tailwindcss.com/", logo: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
+    { name: "Vue.js", url: "https://vuejs.org/", logo: "https://cdn.simpleicons.org/vue.js/4FC08D" },
+    { name: "Angular", url: "https://angular.io/", logo: "https://cdn.simpleicons.org/angular/DD0031" },
   ],
   Backend: [
-    { name: "Node.js", url: "https://nodejs.org/", logo: new URL("../../attached_assets/node logo_1764188505456.jpg", import.meta.url).href },
-    { name: "Express", url: "https://expressjs.com/", logo: new URL("../../attached_assets/express logo_1764188505454.jpg", import.meta.url).href },
-    { name: "Python", url: "https://www.python.org/", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" },
-    { name: "Django", url: "https://www.djangoproject.com/", logo: new URL("../../attached_assets/django logo_1764188549128.png", import.meta.url).href },
-    { name: "FastAPI", url: "https://fastapi.tiangolo.com/", logo: new URL("../../attached_assets/fastapi logo_1764188505454.png", import.meta.url).href },
+    { name: "Node.js", url: "https://nodejs.org/", logo: "https://cdn.simpleicons.org/nodedotjs/339933" },
+    { name: "Express", url: "https://expressjs.com/", logo: "https://cdn.simpleicons.org/express/000000" },
+    { name: "Python", url: "https://www.python.org/", logo: "https://cdn.simpleicons.org/python/3776AB" },
+    { name: "Django", url: "https://www.djangoproject.com/", logo: "https://cdn.simpleicons.org/django/092E20" },
+    { name: "FastAPI", url: "https://fastapi.tiangolo.com/", logo: "https://cdn.simpleicons.org/fastapi/009688" },
   ],
   Database: [
-    { name: "PostgreSQL", url: "https://www.postgresql.org/", logo: new URL("../../attached_assets/postgresql logo_1764188505457.jpg", import.meta.url).href },
-    { name: "MongoDB", url: "https://www.mongodb.com/", logo: new URL("../../attached_assets/mongodb logo_1764188505456.png", import.meta.url).href },
-    { name: "Redis", url: "https://redis.io/", logo: new URL("../../attached_assets/redis logo_1764188540632.png", import.meta.url).href },
-    { name: "MySQL", url: "https://www.mysql.com/", logo: new URL("../../attached_assets/mysql logo_1764188505456.png", import.meta.url).href },
+    { name: "PostgreSQL", url: "https://www.postgresql.org/", logo: "https://cdn.simpleicons.org/postgresql/4169E1" },
+    { name: "MongoDB", url: "https://www.mongodb.com/", logo: "https://cdn.simpleicons.org/mongodb/47A248" },
+    { name: "Redis", url: "https://redis.io/", logo: "https://cdn.simpleicons.org/redis/DC382D" },
+    { name: "MySQL", url: "https://www.mysql.com/", logo: "https://cdn.simpleicons.org/mysql/4479A1" },
   ],
   Cloud: [
-    { name: "AWS", url: "https://aws.amazon.com/", logo: new URL("../../attached_assets/aws logo_1764188549128.jpg", import.meta.url).href },
-    { name: "Google Cloud", url: "https://cloud.google.com/", logo: new URL("../../attached_assets/googlecloud logo_1764188505455.jpg", import.meta.url).href },
-    { name: "Azure", url: "https://azure.microsoft.com/", logo: new URL("../../attached_assets/azure logo_1764188549128.jpg", import.meta.url).href },
-    { name: "Vercel", url: "https://vercel.com/", logo: new URL("../../attached_assets/vercel logo_1764188540634.png", import.meta.url).href },
+    { name: "AWS", url: "https://aws.amazon.com/", logo: "https://cdn.simpleicons.org/amazonaws/232F3E" },
+    { name: "Google Cloud", url: "https://cloud.google.com/", logo: "https://cdn.simpleicons.org/googlecloud/4285F4" },
+    { name: "Azure", url: "https://azure.microsoft.com/", logo: "https://cdn.simpleicons.org/microsoftazure/0078D4" },
+    { name: "Vercel", url: "https://vercel.com/", logo: "https://cdn.simpleicons.org/vercel/000000" },
   ],
   DevOps: [
-    { name: "Docker", url: "https://www.docker.com/", logo: new URL("../../attached_assets/docker logo_1764188505454.png", import.meta.url).href },
-    { name: "Kubernetes", url: "https://kubernetes.io/", logo: new URL("../../attached_assets/kubernetes logo_1764188505455.jpg", import.meta.url).href },
-    { name: "GitHub Actions", url: "https://github.com/features/actions", logo: new URL("../../attached_assets/github logo_1764188505455.png", import.meta.url).href },
-    { name: "Terraform", url: "https://www.terraform.io/", logo: new URL("../../attached_assets/terraform logo_1764188540633.png", import.meta.url).href },
+    { name: "Docker", url: "https://www.docker.com/", logo: "https://cdn.simpleicons.org/docker/2496ED" },
+    { name: "Kubernetes", url: "https://kubernetes.io/", logo: "https://cdn.simpleicons.org/kubernetes/326CE5" },
+    { name: "GitHub Actions", url: "https://github.com/features/actions", logo: "https://cdn.simpleicons.org/githubactions/2088FF" },
+    { name: "Terraform", url: "https://www.terraform.io/", logo: "https://cdn.simpleicons.org/terraform/7B42BC" },
   ],
   "AI/ML": [
-    { name: "TensorFlow", url: "https://www.tensorflow.org/", logo: new URL("../../attached_assets/tensorflow logo_1764188540633.jpg", import.meta.url).href },
-    { name: "PyTorch", url: "https://pytorch.org/", logo: new URL("../../attached_assets/pytorch logo_1764188540631.jpg", import.meta.url).href },
-    { name: "OpenAI", url: "https://openai.com/", logo: new URL("../../attached_assets/openai logo_1764188505457.png", import.meta.url).href },
-    { name: "Hugging Face", url: "https://huggingface.co/", logo: new URL("../../attached_assets/hugging face logo_1764188505455.png", import.meta.url).href },
+    { name: "TensorFlow", url: "https://www.tensorflow.org/", logo: "https://cdn.simpleicons.org/tensorflow/FF6F00" },
+    { name: "PyTorch", url: "https://pytorch.org/", logo: "https://cdn.simpleicons.org/pytorch/EE4C2C" },
+    { name: "OpenAI", url: "https://openai.com/", logo: "https://cdn.simpleicons.org/openai/412991" },
+    { name: "Hugging Face", url: "https://huggingface.co/", logo: "https://cdn.simpleicons.org/huggingface/FFD21E" },
+  ],
+  "CRM & Salesforce": [
+    { name: "Salesforce", url: "https://www.salesforce.com/", logo: "https://cdn.simpleicons.org/salesforce/00A1E0" },
+    { name: "Salesforce Lightning", url: "https://www.salesforce.com/products/platform/lightning/", logo: "https://cdn.simpleicons.org/lightning/795EA3" }, // Fallback to generic lightning or keep existing if preferred, but standardizing on simpleicons is good.
+    { name: "Apex", url: "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_intro.htm", logo: "https://cdn.simpleicons.org/salesforce/00A1E0" }, // Reusing SF logo as Apex specific might not exist
   ],
 };
 
